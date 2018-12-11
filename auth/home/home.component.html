@@ -1,0 +1,24 @@
+<div id="main">
+  <div class="section" id="nav">
+    <div class="container">
+      <div class="link" (click)="goHome()">
+        <span>Learn More</span>
+      </div>
+      <div class="link" (click)="download()">
+        <span>Download</span>
+      </div>
+    </div>
+  </div>
+  <div class="section" id="logoContainer">
+    <div class="image">
+      <img [src]="logo.image" [alt]="logo.alt">      
+    </div>
+  </div>
+  <div class="section signin" id="facebookSignin" (click)="facebookSignin()">
+    <span>Sign in with Facebook</span>
+    <app-facebook></app-facebook>
+  </div>
+  <div class="section signin" id="emailSignin" (click)="emailSignin()">
+    <span>Sign in with Email</span>
+  </div>
+</div>

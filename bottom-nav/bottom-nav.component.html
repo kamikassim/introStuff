@@ -1,0 +1,105 @@
+<div class="container">
+  <div class="sections">
+    <div class="section">
+        <ol class="about">
+          <li class="head">About Us</li>
+          <a href="https://myintro.com/about"><li>Our Vision</li></a>
+        </ol>
+      </div>
+      <div class="section">
+        <ol class="contact">
+          <li class="head">Contact Us</li>
+          <div id="bttm-br-contactLink" (click)="showContact()"><li>Support</li></div>
+          <div id="bttm-br-mapLink" (click)="showMap()"><li>Location</li></div>
+        </ol>
+      </div>
+      <div class="section">
+        <ol class="legal">
+          <li class="head">Legal</li>
+          <a href="https://myintro.com/privacy"><li>Privacy Policy</li></a>
+          <a href="https://myintro.com/terms"><li>Terms of Service</li></a>
+        </ol>
+      </div>
+  </div>
+    <div id="bttm-br-contact" *ngIf="bottomContact">
+      <span class="title">Contact Support</span>
+      <form id="bttm-br-contactForm" method="post" action="">
+        <input type="text" name="name" placeholder="Your Name">
+        <input type="email" name="email" placeholder="Your Email">
+        <textarea for="" name="message" placeholder="Start typing..."></textarea>
+        <input type="submit" name="bttm-br-contactSubmitActual" id="bttm-br-contactSubmit">
+        <label for="bttm-br-contactSubmit">Send Message</label>
+      </form>
+    </div>
+    <div id="bttm-br-map" *ngIf="bottomMap">
+      <span class="title">Map of Atlanta</span>
+      <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106135.29706082348!2d-84.49064373159977!3d33.767693119673154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5045d6993098d%3A0x66fede2f990b630b!2sAtlanta%2C+GA!5e0!3m2!1sen!2sus!4v1506094236682" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+      <!-- <iframe src="https://www.google.com/maps/d/embed?mid=19KXVKycRQ51cQ6BQ4dJprT_yplQ" width="640" height="480" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+      <!-- <iframe src="https://www.google.com/maps/d/embed?mid=19KXVKycRQ51cQ6BQ4dJprT_yplQ" width="640" height="480"></iframe> -->
+      <iframe src="https://www.google.com/maps/d/embed?mid=1ymLpA04tRK91lHDRjVauPwgr-SA" frameborder="0" style="border:0" allowfullscreen></iframe>
+  
+    </div>
+  </div>
+  <script type="text/javascript">
+    function contactActivator(){
+      $('#bttm-br-contactLink').click(function(e){
+        e.preventDefault();
+        $('#bttm-br-contact').css('display', 'block');
+        $('body').animate({
+          scrollTop: $('#bttm-br-contact').offset().top - 40
+        }, 400);
+        setTimeout(function(){
+          if ($('#bttm-br-contact').css('opacity') != 1) {
+            $('#bttm-br-contact').animate({
+              opacity: 1
+            }, 400);		
+          }
+        }, 400);
+      });
+    }
+    function mapActivator(){
+      $('#bttm-br-mapLink').click(function(e){
+        e.preventDefault();
+        $('#bttm-br-map').css('display', 'block');
+        $('body').animate({
+          scrollTop: $('#bttm-br-map').offset().top - 40
+        }, 400);
+        setTimeout(function(){
+          if ($('#bttm-br-map').css('opacity') != 1) {
+            $('#bttm-br-map').animate({
+              opacity: 1
+            }, 400);		
+          }
+        }, 400);
+      });
+    }
+    function contactFormHandler(){
+      $('#bttm-br-contactForm').on("submit", function(e){
+        e.preventDefault();
+        var contactFormData = decodeURIComponent($('#bttm-br-contactForm').serialize().replace(/\+/g, '%20'));
+        var name = 'name=';
+        var email = 'email=';
+        var message = 'message=';
+        name = contactFormData.substring(name.length, contactFormData.indexOf("&"));
+        contactFormData = contactFormData.substring((contactFormData.indexOf(name) + name.length + 1), contactFormData.length);
+        email = contactFormData.substring(email.length, contactFormData.indexOf("&"));
+        contactFormData = contactFormData.substring((contactFormData.indexOf(email) + email.length + 1), contactFormData.length);
+        message = contactFormData.substring(message.length, contactFormData.length);
+        name = name.trim();
+        email = email.trim();
+        message = message.trim();
+        // // // // console.log("name = " + name);
+        // // // // console.log("email = " + email);
+        // // // // console.log("message = " + message);
+        $.post('https://myintro.com/assets/php/.contactFormEmail.php', { name: name, email: email, message: message }).done(function( data ) {
+          alert( data );
+          document.getElementById("bttm-br-contactForm").reset();
+        });
+      });
+    }
+    $(document).ready(function(){
+      contactActivator();
+      mapActivator();
+      contactFormHandler();
+    });
+  </script>

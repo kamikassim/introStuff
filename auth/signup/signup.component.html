@@ -1,0 +1,37 @@
+<div class="page">
+  <div class="header">
+      <div class="back" (click)="back()">
+          <i class="material-icons">chevron_left</i>
+          <span>{{backLabel}}</span>
+      </div>
+      <span class="title">{{title}}</span>
+      <div class="extraSpace"></div>
+  </div>
+
+  <div class="field">
+      <div class="imageContainer">
+          <img [src]="logo">
+      </div>
+      <input name="email" type="text" [(ngModel)]="email" placeholder="Email">
+      <input type="text" [(ngModel)]="displayName" placeholder="Full Name">
+      <input name="username" type="text" [(ngModel)]="userName" placeholder="Username"/>
+      <input id="password_field" type="password" [(ngModel)]="password" placeholder="Password"/>
+      
+      <div id="checkbox">
+        <input type="checkbox" [(ngModel)]="terms">
+        <span>I have read the
+          <span id="terms">Terms & Conditions</span>
+        </span>
+      </div>
+      <div class="submit" (click)="signUp()">
+        <span>Sign Up</span>
+      </div>
+      <div>
+          <span>Already Registered?</span>
+      </div>
+      <div class="link" (click)="confirm()">
+          <span>Enter Confirmation Code</span>
+      </div>
+  </div>
+
+</div>

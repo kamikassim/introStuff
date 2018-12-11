@@ -1,0 +1,16 @@
+<div id="jobs">
+  <span class="sectionTitle">Recommended Jobs</span>
+  <div class="job" *ngFor="let job of jobs" (click)="goto(job.id)">
+    <div class="accent"></div>
+    <div class="data">
+      <div class="header">
+        <i class="material-icons">business_center</i>
+        <span>{{job.jobJobTitle}}</span>
+      </div>
+      <div class="info">
+        <p>{{job.jobDescription}}</p>
+        <span>{{job.jobLocation}}</span>
+      </div>
+    </div>
+  </div>
+</div>

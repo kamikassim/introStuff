@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="data">
+    <span [innerHTML]="data"></span>
+  </div>
+  <div class="okay" (click)="hide()" *ngIf="buttonVisible">
+    <span>OKAY</span>
+  </div>
+</div>

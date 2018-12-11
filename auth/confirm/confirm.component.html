@@ -1,0 +1,23 @@
+<div class="page">
+  <div class="header">
+      <div class="back" (click)="back()">
+          <i class="material-icons">chevron_left</i>
+          <span>{{backLabel}}</span>
+      </div>
+      <span class="title">{{title}}</span>
+      <div class="extraSpace"></div>
+  </div>
+
+  <div class="field">
+      <div class="imageContainer">
+          <img [src]="logo">
+      </div>
+      <input name="username" type="text" [(ngModel)]="userName" placeholder="Username"/>
+      <input name="secret" type="text" [(ngModel)]="secret" placeholder="Confirmation"/>
+      
+      <div class="submit" (click)="confirm()">
+        <span>Confirm</span>
+      </div>
+  </div>
+
+</div>

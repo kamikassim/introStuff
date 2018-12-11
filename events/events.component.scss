@@ -1,0 +1,79 @@
+@import './src/assets/styles/main';
+
+:host{
+    @include display_flex;
+    flex-direction: column;
+    min-height: fit-content;
+}
+
+#events{
+    .sectionTitle{
+        @include display_flex;
+        margin-top: 2rem;
+        @include labelStyle;
+        text-transform: capitalize;
+        font-size: 1.2rem;
+        @include notMobile{
+            font-size: 1rem;
+            margin-top: initial;
+        }
+    }
+    .event{
+        @include display_flex;
+        flex-direction: column;
+        position: relative;
+        margin-top: 1rem;
+        padding: 0.5rem 0 0;
+
+        cursor: pointer;
+        *{
+            cursor: pointer;
+        }
+
+        @include notMobile{
+            &:hover{
+                .accent{
+                    width: 0.4rem;
+                }
+            }
+        }
+
+        .data{
+            @include display_flex;
+            flex-direction: column;
+            margin-left: 1rem;
+
+            i{
+                font-size: 2rem;
+                @include notMobile{
+                    font-size: 2.5rem;
+                }
+            }
+
+            p{
+                font-size: 1rem;
+                margin: 0.6rem 0 0.5rem;
+            }
+
+            .header{
+                @include display_flex;
+                align-items: center;
+
+                span{
+                    margin-left: 0.5rem;
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                }
+            }
+        }
+        .accent{
+            position: absolute;
+            height: $full;
+            width: 0.2rem;
+            background-color: $color-myintro;
+            border-radius: $circle;
+            @include quickTransition(width);
+        }
+
+    }
+}

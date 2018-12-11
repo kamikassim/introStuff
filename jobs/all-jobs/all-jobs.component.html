@@ -1,0 +1,26 @@
+<app-alert-window [class]="(alertActive ? 'active' : 'inactive') + ' ' + (alertVisible ? 'visible' : 'invisible')"></app-alert-window>
+<!-- <app-nav-old class="navbar" *ngIf="!user"></app-nav-old> -->
+<app-nav-search class="navbar"></app-nav-search>
+<div id="page" [class]="(siteVisible ? 'siteVisible' : 'siteNotVisible')" (window:scroll)="getNextPage()" (window:resize)="onResize()">
+    <div id="company-info">
+        <div class="container">
+          <i class="material-icons">business_center</i>
+          <div class="company-name">All Jobs</div>
+        </div>
+      </div>
+      <div id="feed">
+        <span class="feed">{{numberOfJobs}} Active Jobs</span>
+        <div class="job" *ngFor="let job of jobs">
+          <div class="container posting">
+            <div class="linkToExpand" (click)="openDetails(job.viewLink)">
+              <div class="description post1">
+                <span class="title">{{job.jobEmployer}}&nbsp;|&nbsp;{{job.jobJobTitle}}</span>
+                <p class="text">{{job.jobDescription}}</p>
+                <span class="location">Location: {{job.jobLocation}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <app-bottom-nav></app-bottom-nav>
+</div>

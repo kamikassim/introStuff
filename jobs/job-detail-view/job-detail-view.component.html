@@ -1,0 +1,156 @@
+<app-nav-search class="navbar"></app-nav-search>
+<app-alert-window [class]="(alertActive ? 'active' : 'inactive') + ' ' + (alertVisible ? 'visible' : 'invisible')"></app-alert-window>
+<div [class]="'pageContainer hasUser'">
+    <div class="page">
+        <div class="triangle">
+          <div class="element"></div>
+        </div>
+    
+        <div class="content" *ngIf="job">
+          
+          <div class="element">
+            <h1>{{job.jobJobTitle}}</h1>
+          </div>
+          
+          <div class="element cleft mright" *ngIf="job.jobEmployer">
+            <h4>Employer:&nbsp;</h4>
+            <h4 class="noClear text">{{job.jobEmployer}}</h4>
+          </div>
+          
+          <div class="element noClear mright" *ngIf="job.contactFullName">
+            <h4>Contact:&nbsp;</h4>
+            <h4 class="noClear text">{{job.contactFullName}}</h4>
+          </div>
+          
+          <div class="element noClear" *ngIf="job.contactEmail">
+            <h4>Email:&nbsp;</h4>
+            <h4 class="noClear text">{{job.contactEmail}}</h4>
+          </div>
+          
+          <div class="element cleft mright" *ngIf="job.jobPositionType">
+            <h5>Type:&nbsp;</h5>
+            <h5 class="noClear text">{{job.jobPositionType}}</h5>
+          </div>
+          
+          <div class="element noClear mright" *ngIf="job.jobSalaryLevel">
+            <h5>Salary:&nbsp;</h5>
+            <h5 class="noClear text">{{job.jobSalaryLevel}}</h5>
+          </div>
+          
+          <div class="element noClear mright">
+            <h5>Hours:&nbsp;</h5>
+            <h5 class="noClear text" *ngIf="job.jobApproximateHoursPerWeek">{{job.jobApproximateHoursPerWeek}}</h5>
+            <h5 class="noClear text" *ngIf="!job.jobApproximateHoursPerWeek">N/A</h5>
+          </div>
+          
+          <div class="element noClear" *ngIf="job.jobLocation">
+            <h5>Location(s):&nbsp;</h5>
+            <h5 class="noClear text">{{job.jobLocation}}</h5>
+          </div>
+          
+          <div class="element description section">
+            <h3>Job Description</h3>
+            <p class="text">{{job.jobDescription}}</p>
+          </div>
+          
+          <div class="element section">
+            <h3>More Info</h3>
+          </div>
+          
+          <div class="element mright">
+            <h5>Date Posted:&nbsp;</h5>
+            <h5 class="noClear text" *ngIf="job.jobDatePosted">{{job.jobDatePosted}}</h5>
+            <h5 class="noClear text" *ngIf="!job.jobDatePosted">N/A</h5>
+          </div>
+          
+          <div class="element noClear mright">
+            <h5>Job End Date:&nbsp;</h5>
+            <h5 class="noClear text" *ngIf="job.jobDateEnd">{{job.jobDateEnd}}</h5>
+            <h5 class="noClear text" *ngIf="!job.jobDateEnd">N/A</h5>
+          </div>
+          
+          <div class="element noClear mright">
+            <h5>Preferred Major(s):&nbsp;</h5>
+            <h5 class="noClear text">{{job.jobMajorsConcentrations}}</h5>
+          </div>
+          
+          <div class="element noClear mright">
+            <h5>Preferred Degree(s):&nbsp;</h5>
+            <h5 class="noClear text">{{job.jobDegreeLevel}}</h5>
+          </div>
+          
+          <div class="element noClear mright">
+            <h5>Minimum GPA:&nbsp;</h5>
+            <h5 class="noClear text">{{job.jobMinimumCumulativeGPA}}</h5>
+          </div>
+    
+          <div class="element noClear mright">
+            <h5>Number of Openings:&nbsp;</h5>
+            <h5 class="noClear text">{{job.jobNumberofOpenings}}</h5>
+          </div>
+    
+          <div class="element section">
+            <h3>Submission</h3>
+          </div>
+    
+          <div class="element mright">
+            <h5>Submission Method:&nbsp;</h5>
+            <h5 class="noClear text">{{job.jobResumeSubmissionMethod}}</h5>
+          </div>
+    
+          <div class="element noClear mright" *ngIf="job.contactEmail">
+            <h5>Send To:&nbsp;</h5>
+            <h5 class="noClear text">{{job.contactEmail}}</h5>
+          </div>
+    
+          <div class="element section">
+            <h3>Contact</h3>
+          </div>
+    
+          <div class="element">
+            <h5>Employer:&nbsp;</h5>
+            <h5 class="noClear text">{{job.contactEmployer}}</h5>
+            <p class="text">{{job.contactEmployerDescription}}</p>
+          </div>
+    
+          <div class="element mright">
+            <h5>Address:&nbsp;</h5>
+            <h5 class="noClear text">{{job.contactAddress}}</h5>
+          </div>
+    
+          <div class="element mright">
+            <h5>Contact:&nbsp;</h5>
+            <h5 class="noClear text">{{job.contactFirst}}&nbsp;{{job.contactLast}},&nbsp;</h5>
+            <h5 class="noClear text">{{job.contactTitle}}</h5>
+          </div>
+    
+          <div class="element noClear mright" *ngIf="job.contactEmail">
+            <h5>Email:&nbsp;</h5>
+            <h5 class="noClear text">{{job.contactEmail}}</h5>
+          </div>
+    
+          <div class="element noClear mright">
+            <h5>Phone:&nbsp;</h5>
+            <h5 class="noClear text">{{job.contactPhone}}</h5>
+          </div>
+    
+          <div class="element noClear mright">
+            <h5>Website:&nbsp;</h5>
+            <h5 class="noClear text" *ngIf="job.contactWebSite">{{job.contactWebSite}}</h5>
+            <h5 class="noClear text" *ngIf="!job.contactWebSite">N/A</h5>
+          </div>
+        </div>
+      </div>
+      <div class="extra" *ngIf="!user">
+        <div class="logo"></div>
+        <div class="logo_text">Introduce Yourself</div>
+      </div>
+      <app-apply *ngIf="user && job && job.contactEmail"></app-apply>
+      <div class="noContactEmail" *ngIf="job && !job.contactEmail">
+        <a class="applyExternal" [href]="job.contactWebsite" target="_blank">
+          <span>View Application</span>
+        </a>
+      </div>
+      <app-history *ngIf="events"></app-history>
+      
+</div>

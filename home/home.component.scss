@@ -1,0 +1,653 @@
+@import './src/assets/styles/main';
+*{
+	position: relative;
+	float: left;
+}
+body{
+	margin: 0;
+	background-color: #333333;
+}
+
+:host, app-home{
+    background-color: #333333;
+    @include display_flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+// @import 'variables';
+/*.button{
+	background-color: $color-myintro;
+	padding: 15px 25px;
+	border-radius: 2px;
+	@include notSelectable();
+	@include noDecoration();
+	
+	@include mobile{
+		font-weight: 300;
+		font-size: 1em;
+		@include card2();
+	}
+	@include tablet{
+		font-weight: 400;
+		font-size: 1.2em;
+		@include card2();
+	}
+	@include desktop{
+		font-weight: 400;
+		font-size: 1.2em;
+		@include card();
+	}
+	
+	cursor: pointer;
+	color: white;
+}*/
+.hiddenInput{
+	display: none;
+}
+.hidden{
+	opacity: 0;
+}
+
+.clickable{
+	cursor: pointer !important;
+}
+.noDecLink{
+	@include noDecoration();
+	cursor: pointer;
+	*{
+		cursor: pointer;
+	}
+}
+
+.blue{
+	color: $color-myintro;
+}
+.bold{
+	font-weight: 700;
+}
+#nav, #navLogin, #navCorp{
+	@include mobile{
+		min-width: 314px;
+	}
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9999999999;
+	background-color: rgba(0,0,0,1);
+	@include desktop{
+		&.home{
+			@keyframes color_back{
+			from{
+				background-color: rgba(0,0,0,1);
+			}
+			to{
+				background-color: rgba(0,0,0,0);
+			}
+		}
+			animation: color_back .4s ease-out 3.3s forwards;
+		}
+	}
+	width: $full;
+	@include notMobile{
+		&.active{
+			padding-top: 2px;
+		}
+	}
+	.navbar{
+		width: calc(100% - 5px);
+		margin: 0px;
+		padding-left: 5px;
+		@include notMobile{
+			padding-left: 10px;
+		}
+		.logo{
+			margin: 0;
+			padding: 0;
+			.image{
+				height: 40px;
+				width: 40px;
+				margin: 5px 0px 5px 0px;
+				background-image: url("https://myintro.com/assets/img/logo.png");
+				background-size: contain;
+				background-position: center;
+				background-repeat: no-repeat;
+			}
+			.label{
+				// margin: 16px 20px;
+				@include mobile{
+					display: none;
+				}
+			}
+		}
+		.links{
+			@include mobile{
+				left: calc(50% - 30px);
+				transform: translateX(-50%);
+				#link_hello{
+					span{
+						padding-left: 0px;
+						@include tablet{
+							padding-left: 5px;
+						}
+					}
+				}
+			}
+		}
+		.betaLogo{
+			position: fixed;
+			top: 0;
+			right: 0;
+			height: 4rem;
+			width: 4rem;
+			@include display_flex;
+
+			.image{
+				width: $full;
+				height: $full;
+				@include display_flex;
+
+				img{
+					width: $full;
+					height: $full;
+					object-fit: contain;
+				}
+			}
+		}
+		.signin{
+			clear: both;
+			height: 50px;
+			@include mobile{
+				@include relativeMiddle();
+				width: $full;
+				// margin-left: -5px;
+			}
+			@include desktop{
+				height: 52px;
+				clear: none;
+			}
+			@include notMobile{
+				float: right;	
+			}
+			@include tablet{
+				@include relativeMiddle();
+				margin-left: -5px;
+			}
+			form{
+				height: $full;
+				@include mobile{
+					width: $full;
+				}
+				input[type=text], input[type=password]{
+					height: calc(100% - 26px);
+					margin: 10px 0px;
+					@include mobile{
+						width: calc(34vw - 10px);
+					}
+				}
+				input[type=text]{
+					margin-right: 10px;
+					@include mobile{
+						float: left;
+					}
+				}
+				label, label > span{
+					@include noDecoration();
+					@include notSelectable();
+					cursor: pointer;
+					color: white;
+					@include mobile{
+						&:not(label){
+							padding-left: 20px;
+							padding-right: 20px;
+						}
+						float: right;
+					}
+				}
+			}
+			
+			// width: $full;
+		}
+		.signOut{
+			float: right;
+			a{
+				span{
+					width: 70px;
+					padding-right: 20px;
+				}
+			}
+		}
+		.search{
+			height: 50px;
+			width: calc(100% - 150px);
+			@include notMobile{
+				@include absoluteMiddle();
+				width: auto;
+			}
+			#searchBar{
+				height: calc(100% - 14px);
+				margin: 7px 10px;
+				margin-right: 0px;
+				width: calc(100% - 20px);
+				@include notMobile{
+					width: auto;
+					min-width: 40vw;
+				}
+				overflow: hidden;
+				border-radius: 2px;
+				input[type=text]{
+					height: calc(100% - 10px);
+					border: none;
+					width: calc(100% - 20px);
+					padding: 5px 10px;
+					text-align: center;
+					@include notMobile{
+						width: calc(100% - 40px);
+						
+						padding: 5px 20px;
+						font-size: 14px;
+						line-height: 16px;
+						// padding-left: 30px;
+					}
+					
+					// left: 5px;
+					@include noInset();
+					@include noDecoration();
+				}
+			}
+		}
+		span{
+			padding: 15px 0px 15px 20px;
+			// margin: 0px 0px 15px 0px;
+			@include notMobile{
+				padding: 15px 5px;
+				margin: 0px 15px;
+			}
+			font-size: 16px;
+			line-height: 20px;
+			vertical-align: middle;
+			color: white;
+			&.active{
+				color: $color-myintro;
+				text-shadow: -1px 1px 0px rgba(0,0,0, 0.4);
+				@include notMobile{
+					border-bottom: 2px solid white;
+				}
+			}
+			&:hover:not(.label):not(.login){
+				color: $color-myintro;
+				@include notMobile{
+					opacity: 0.5;
+				}
+			}
+			
+		}
+		a{
+			@include noDecoration();
+			@include notSelectable();
+			cursor: pointer;
+		}
+	}
+}
+#nav2{
+	width: $full;
+	@include display_flex();
+	justify-content: space-between;
+	max-height: $full;
+	.logo{
+		height: 100%;
+		img{
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+}
+#bottomBar{
+	width: calc(100vw - 40px);
+	background-color: #333333;
+	color: white;
+	padding: 20px 20px;
+	font-weight: 300;
+	overflow-x: hidden;
+	@include quickTransition(height);
+	.container{
+		width: auto;
+		height: auto;
+		min-width: $full;
+		/*// @include middle();*/
+		.section{
+			min-width: calc(33.33% - 120px);
+			margin: 20px 60px;
+			@include mobile{
+				/*// width: calc(100% - 120px);*/
+			}
+			@include tablet{
+				/*// width: calc(100% - 120px);*/
+			}
+			ol{
+				padding: 0;
+				@include mobile{
+					/*@include middle();*/
+				}
+				@include tablet{
+					/*@include middle();*/
+				}
+				li, a{
+					@include notSelectable();
+					@include noDecoration();
+					@include noList();
+					color: white;
+					text-align: left;
+					width: 130px;
+					clear: both;
+					font-size: 1em;
+					&:not(a){
+						margin-bottom: 10px;
+						@include mobile{
+							padding: 20px 0px;
+						}
+					}
+					
+					&.head{
+						font-weight: 400;
+						font-size: 1.2em;
+						margin-bottom: 20px;
+						@include mobile{
+							font-size: 1.4em;
+						}
+					}
+					&:not(.head){
+						cursor: pointer;
+					}
+				}
+			}
+		}
+		#bttm-br-contact{
+			position: relative;
+			float: left;
+			width: $full;
+			height: 100vh;
+			display: none;
+			opacity: 0;
+			clear: both;
+			@include tablet{
+				width: 70%;
+				@include relativeMiddle();
+			}
+			@include desktop{
+				width: 50%;
+				@include relativeMiddle();
+			}
+			*{
+				position: relative;
+				float: left;
+			}
+			.title{
+				width: $full;
+				text-align: center;
+				margin: 60px 0px;
+				font-size: 1.4em;
+				font-weight: 400;
+			}
+
+			#bttm-br-contactForm{
+				@include noDecoration();
+				input[type=text], input[type=email], textarea{
+					width: calc(100% - 20px);
+					padding: 10px;
+					border: none;
+					font-size: 1em;
+					line-height: 1.2em;
+					vertical-align: middle;
+					font-weight: 300;
+					margin-bottom: 20px;
+					border-radius: 2px;
+				}
+				textarea{
+					min-height: 100px;
+					max-height: 100px;
+					resize: none;
+				}
+				input[type=submit]{
+					display: none;
+				}
+				label{
+					@include noDecoration();
+					@include notSelectable();
+					cursor: pointer;
+					color: white;
+					padding: 15px 20px;
+					background-color: $color-myintro;
+					border-radius: 2px;
+					margin-top: 20px;
+					@include mobile{
+						@include card2();
+						@include relativeMiddle();
+					}
+					@include notMobile{
+						@include card();
+						@include relativeMiddle();
+					}
+				}
+			}
+		}
+		#bttm-br-map{
+			position: relative;
+			float: left;
+			width: $full;
+			height: 100vh;
+			display: none;
+			opacity: 0;
+			clear: both;
+			
+			@include notSelectable();
+			@include noDecoration();
+			margin: 60px 0px;
+
+			@include tablet{
+				width: 70%;
+				@include relativeMiddle();
+			}
+			@include desktop{
+				width: 50%;
+				@include relativeMiddle();
+			}
+			*{
+				position: relative;
+				float: left;
+			}	
+			iframe{
+				width: $full;
+				height: 50%;
+				@include card2();
+				border-radius: 5px;
+			}
+			.title{
+				width: $full;
+				text-align: center;
+				margin: 60px 0px;
+				font-size: 1.4em;
+				font-weight: 400;
+			}
+		}
+	}	
+}
+
+#loader{
+	background-color: transparent;
+	width: 100%;
+	height: 100vh;
+	@include display_flex();
+	align-items: center;
+	justify-content: center;
+	font-size: 10vw;
+	position: absolute;
+	top: 0;
+	@include notMobile{
+		font-size: 3em;
+	}
+	@include noDecoration();
+	@include notSelectable();
+	color: white;
+	@include quickTransition(all);
+
+	z-index: -1;
+	opacity: 0;
+	&.active{
+		background-color: rgba(black, 0.7);
+		z-index: 999999;
+		opacity: 1;
+	}
+}
+
+#hello{
+	width: 100vw;
+	background-color: black;
+	margin-bottom: -25px;
+	overflow: hidden;
+	@include mobile{
+		margin-bottom: 0;
+		margin-top: 49px;
+		height: calc(80vh - 50px);
+		@include transition(height, 9999999999s, 1s);
+	}
+	video{
+		width: $full;
+		height: auto;
+		max-height: 100vh;
+		top: -40px;
+		margin-bottom: -40px;
+		@include mobile{
+			height: calc(100% + 40px);
+			margin-bottom: 0px;
+			width: auto;
+			top: -20px;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	}
+
+	.overlay{
+		position: absolute;
+		width: $full;
+		height: $full;
+		background-color: black;
+		color: white;
+		vertical-align: middle;
+		text-align: center;
+		opacity: 1;
+		span{
+			line-height: 6em;
+			font-size: 5em;
+			opacity: 1;
+			@include absoluteCenter();
+			@keyframes hello_text_fadeout{
+				from{
+					opacity: 1;
+				}
+				to{
+					opacity: 0;
+				}
+			}
+			animation: hello_text_fadeout .4s ease-out 2.6s forwards;
+		}
+		@keyframes hello_fadeout{
+			0%{
+				opacity: 1;
+				background-color: black;
+				visibility: visible;
+			}
+			30%{
+				opacity: 1;
+				background-color: $color-myintro;
+			}
+
+			80%{
+				opacity: 1;
+				background-color: $color-myintro;
+			}
+
+			99%{
+				visibility: visible;
+			}
+
+			100%{
+				background-color: $color-myintro;
+				opacity: 0;
+				visibility: hidden;
+			}
+		}
+		animation: hello_fadeout 3.5s ease-out 0.5s forwards;
+	}
+	.content{
+		opacity: 0.9;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: $full;
+		height: calc(100% + 2px);
+		background-color: rgba(0,0,0,0.5);
+		.logo-container{
+			left: 50%;
+			top: calc(50% - 2px);
+			transform: translate(-50%, -50%);
+			text-align: center;
+			.logo{
+				height: 100px;
+				width: $full;
+				background-image: url("https://myintro.com/assets/img/logo.png");
+				background-position: center;
+				background-size: contain;
+				background-repeat: no-repeat;
+				display: inline;
+				/*margin-bottom: 20px;*/
+				clear: both;
+				@include mobile{
+					height: 60px;
+				}
+			}
+			.title{
+				font-size: 3em;
+				color: white;
+				font-weight: 700;
+				/*margin-bottom: 10px;*/
+				width: $full;
+				clear: both;
+			}
+			.text{
+				clear: both;
+				font-size: 2em;
+				color: white;
+				font-weight: 300;
+			}
+			.signin{
+				@include noDecoration();
+				@include notSelectable();
+				color: white;
+				border: solid 2px white;
+				padding: 5px 30px;
+				position: relative;
+				clear: both;
+				font-size: 1.5em;
+				@include relativeMiddle();
+				margin-top: 20px;
+				border-radius: 5px;
+				cursor: pointer;
+				&:hover{
+					background-color: $color-text-grey;
+				}
+
+			}
+		}
+	}
+}
+
+app-bottom-nav{
+    width: $full;
+	background-color: #333333;
+	color: white;
+	padding: 20px 20px;
+	font-weight: 300;
+	overflow-x: hidden;
+	@include quickTransition(height);
+}

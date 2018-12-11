@@ -1,0 +1,19 @@
+@import './src/assets/styles/main';
+
+:host{
+    @include display_flex;
+    flex-direction: column;
+    padding: 1rem;
+    width: $full;
+}
+
+.header{
+    @include display_flex;
+    border-bottom: 1px solid $color-grey;
+    padding-bottom: 0.5rem;
+    width: $full;
+}
+
+.events{
+    padding: 1rem;
+}

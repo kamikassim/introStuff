@@ -1,0 +1,16 @@
+<div id="events">
+  <span class="sectionTitle">Recommended Events</span>
+  <div class="event" *ngFor="let event of events" (click)="goto(event.url)">
+    <div class="accent"></div>
+    <div class="data">
+      <div class="header">
+        <i class="material-icons">event</i>
+        <span>{{event.title}}</span>
+      </div>
+      <div class="info">
+        <p>{{event.description}}</p>
+        <span>{{event.location}}</span>
+      </div>
+    </div>
+  </div>
+</div>

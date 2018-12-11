@@ -1,0 +1,139 @@
+@import './src/assets/styles/main';
+
+$blueLinkColor: #31acde;
+
+@mixin pointerOnSelfAndChildren() {
+    cursor: pointer;
+    * {
+        cursor: pointer;
+    }
+}
+
+:host, app-page-section-info{
+    @include display_flex;
+    overflow: visible;
+    height: $full;
+    position: absolute;
+    width: $full;
+}
+
+.page {
+    @include display_flex;
+    @include flex(1,1,0);
+    min-height: fit-content;
+    flex-direction: column;
+    background-color: white;
+
+    span, img {
+        @include noDS;
+    }
+
+    .header {
+        @include flexCenter;
+        @include flex(1,1,0);
+        background-color: #31acde;
+        flex-direction: row;
+        
+        .back {
+            @include flex(1,1,0);
+            @include display_flex;
+            align-items: center;
+            font-size: 1rem;
+            
+            color: white;
+
+            i {
+                @include noDS;
+                font-size: 2rem;
+                margin-left: 1rem;
+            }
+
+            i, span {
+                cursor: pointer;
+            }
+        }
+
+        .title {
+            @include flex(1,1,0);
+            color: white;
+            text-align: center;
+            font-size: 1.5rem;
+            font-family: "Hind Siliguri", sans-serif;
+        }
+        
+        .extraSpace{
+            @include flex(1,1,0);
+        }
+    }
+
+    .field {
+        @include flex(10,1,0);
+        @include flexCenter;
+        justify-content: flex-start;
+
+        margin: 20px 2rem;
+        @include notMobile{
+            margin: 20px 30vw;
+        }
+        flex-direction: column;
+
+        .imageContainer {
+            width: 5rem;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+
+            img {
+                width: $full;
+                object-fit: contain;
+            }
+        }
+    
+        .signin_submit {
+            @include pointerOnSelfAndChildren;
+            align-self: flex-end;
+            color: $color-myintro-item;
+            font-size: 1.25rem;
+            border: 0.1rem solid white;
+            padding: 0.3rem 0.5rem;
+
+            &:hover {
+                border-color: $color-myintro;
+            }
+
+            &:active {
+                background-color: $color-myintro;
+
+                span {
+                    color: white;
+                }
+            }
+        }
+    
+        input {
+            @include noDecoration;
+            border: 2px solid #d6d6d6;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            padding: .5rem 1rem;
+            width: 100%;
+
+            &:hover {
+                border-color: $color-myintro-light-blue
+            }
+
+            &:focus {
+                border-color: $color-myintro;
+            }
+        }
+
+        #password_field {
+            color: $color-myintro;
+        }
+
+        .link {
+            @include pointerOnSelfAndChildren;
+            color: $color-myintro-item;
+            margin-bottom: 1rem;
+        }
+    }
+}

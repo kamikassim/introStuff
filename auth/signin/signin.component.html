@@ -1,0 +1,28 @@
+<div class="page">
+    <div class="header">
+        <div class="back" (click)="back()">
+            <i class="material-icons">chevron_left</i>
+            <span>{{backLabel}}</span>
+        </div>
+        <span class="title">{{title}}</span>
+        <div class="extraSpace"></div>
+    </div>
+
+    <div class="field">
+        <div class="imageContainer">
+            <img [src]="logo">
+        </div>
+        <input [(ngModel)]="username" placeholder="Username" type="text" name="username"/>
+        <input id="password_field" [(ngModel)]="password" placeholder="Password" type="password"/>
+        <div class="signin_submit" (click)="login()">
+            <span>Sign In</span>
+        </div>
+        <div class="link" (click)="forgot()">
+            <span>Forgot Password?</span>
+        </div>
+        <div class="link" (click)="create()">
+            <span>Create an Account</span>
+        </div>
+    </div>
+
+</div>

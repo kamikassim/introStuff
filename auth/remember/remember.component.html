@@ -1,0 +1,32 @@
+<!-- <p>
+  remember works!
+</p>
+
+<input type="text" [(ngModel)]="verification">
+<input type="text" [(ngModel)]="password">
+<div class="submit" (click)="remember()">Remember</div> -->
+
+<div class="page">
+  <div class="header">
+      <div class="back" (click)="back()">
+          <i class="material-icons">chevron_left</i>
+          <span>{{backLabel}}</span>
+      </div>
+      <span class="title">{{title}}</span>
+      <div class="extraSpace"></div>
+  </div>
+
+  <div class="field">
+      <div class="imageContainer">
+          <img [src]="logo">
+      </div>
+      <input name="username" type="text" [(ngModel)]="username" placeholder="Username"/>
+      <input name="verification" type="text" [(ngModel)]="verification" placeholder="Verification Code"/>
+      <input name="password" type="password" [(ngModel)]="password" placeholder="New Password"/>
+      
+      <div class="submit" (click)="remember()">
+        <span>Update Password</span>
+      </div>
+  </div>
+
+</div>

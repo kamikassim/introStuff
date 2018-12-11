@@ -1,0 +1,31 @@
+@import './src/assets/styles/main';
+
+.app{
+    @include transition(all, 0.4s, 0s);
+    &.hidden{
+        // display: none;
+        left: 100vw;
+    }
+    &.visible{
+        left: 0;
+    }
+    &.home{
+        opacity: 0;
+        @keyframes showMe {
+            from{
+                opacity: 0
+            }
+            to{
+                opacity: 1;
+            }
+        }
+        animation: showMe .4s ease .4s forwards;
+    }
+}
+
+app-alert-window{
+    background-color: white;
+    height: $full;
+    margin-top: 0;
+    top: 0;
+}

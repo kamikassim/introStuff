@@ -1,0 +1,97 @@
+@import './src/assets/styles/main';
+
+
+
+:host, app-signin{
+    height: $full;
+    position: absolute;
+    width: $full;
+
+    span, img{
+        @include noDS;
+    }
+
+    #main{
+        @include display_flex;
+        flex-direction: column;
+        height: $full;
+
+        .section{
+            @include flex(1,1,0);
+            @include display_flex;
+
+
+            &#nav{
+                justify-content: flex-end;
+                padding: 0 1rem;
+                @include notMobile{
+                    padding: 0 2rem;
+                }
+                .container{
+                    @include display_flex;
+                    align-items: center;
+                    .link{
+                        cursor: pointer;
+                        padding: 0.2rem 0rem;
+                        margin: 0 0.5rem;
+                        @include flexCenter;
+                        @include notMobile{
+                            @include quickTransition(border-color);
+                            border-bottom: 0.25rem solid white;
+                        }
+                        span{
+                            font-weight: 700;
+                            font-family: $font-global;
+                            cursor: pointer;
+                        }
+
+                        &:hover{
+                            border-color: $color-myintro;
+                        }
+                    }
+
+
+                }
+            }
+
+            &#logoContainer{
+                @include flex(5,1,0);
+                overflow: hidden;
+                .image{
+                    @include flexCenter;
+                    width: $full;
+                    img{
+                        width: $full;
+                        object-fit: contain;
+                        height: $full;
+                    }
+                }
+            }
+
+            &#facebookSignin{
+                background-color: $color-facebook;
+            }
+
+            &#emailSignin{
+                background-color: $color-myintro;
+            }
+
+            &.signin{
+                @include flexCenter;
+                cursor: pointer;
+                span{
+                    color: white;
+                    font-family: $font-global;
+                    cursor: pointer;
+                    
+                    font-size: 1rem;
+                    @include notMobile{
+                        font-size: 2rem;
+                        font-weight: 300;
+                    }
+                }
+            }
+        }
+
+    }
+}

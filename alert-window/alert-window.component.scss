@@ -1,0 +1,73 @@
+@import './src/assets/styles/main';
+
+:host, app-alert-window{
+    @include display_flex;
+    height: calc(100% - 4rem);
+    position: fixed;
+    width: $full;
+    top: 4rem;
+    left: 0;
+    background-color: white;
+    z-index: -1;
+    opacity: 0;
+    @include transitionCust(opacity, .4s, 0s, ease-in-out);
+
+    &.active{
+        z-index: 9;
+    }
+
+    &.visible{
+        opacity: 1;
+        .container{
+            opacity: 1;
+        }
+    }
+    .container{
+        @include display_flex;
+        flex-direction: column;
+        @include flex(1,1,0);
+        width: $full;
+        height: $full;
+        justify-content: space-around !important;
+        padding: 1rem;
+        .data{
+            @include flexCenter;
+            span{
+                text-align: center;
+                color: $color-text-grey;
+                font-weight: 300;
+                font-size: 2rem;
+                @include desktop{
+                    font-size: 4rem;
+                }
+            }
+        }
+    
+        .okay{
+            @include noDecoration;
+            cursor: pointer;
+            *{
+                @include noDecoration;
+                cursor: pointer;
+            }
+            @include flexCenter;
+            span{
+                @include noDecoration;
+                @include notSelectable;
+                color: $color-myintro;
+                font-size: 3rem;
+                padding: 2rem;
+                font-weight: 700;
+                cursor: pointer;
+                @include quickTransition(background-color);
+                border-radius: 0.4rem;
+            }
+            span:hover{
+                @include desktop{
+                    background-color: rgba($color-myintro, 0.1)
+                }
+            }
+        }
+    }
+}
+

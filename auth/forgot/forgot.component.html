@@ -1,0 +1,22 @@
+<div class="page">
+  <div class="header">
+      <div class="back" (click)="back()">
+          <i class="material-icons">chevron_left</i>
+          <span>{{backLabel}}</span>
+      </div>
+      <span class="title">{{title}}</span>
+      <div class="extraSpace"></div>
+  </div>
+
+  <div class="field">
+      <div class="imageContainer">
+          <img [src]="logo">
+      </div>
+      <input name="username" type="text" [(ngModel)]="userName" placeholder="Username" (keyup.enter)="forgot()" />
+      
+      <div class="submit" (click)="forgot()">
+        <span>Reset</span>
+      </div>
+  </div>
+
+</div>

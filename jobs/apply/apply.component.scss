@@ -1,0 +1,168 @@
+@import './src/assets/styles/main';
+
+:host{
+    @include display_flex;
+    // flex-direction: column;
+    width: $full;
+    padding: 1rem;
+}
+
+.imageContainer{
+    @include gflex(1);
+    @include notMobile{
+        flex: initial;
+    }
+    @include display_flex;
+    position: relative;
+    min-width: 35vw;
+
+    .area{
+        width: 20vw;
+        height: 20vw;
+        @include flexCenter;
+        border-radius: $circle;
+        overflow: hidden;
+
+        img{
+            width: $full;
+            height: $full;
+            object-fit: cover;
+        }
+
+        i{
+            font-size: 2rem;
+            color: white;
+            @include notMobile{
+                font-size: 4rem;
+            }
+        }
+
+        &.school{
+            position: absolute;
+            left:15vw;
+            z-index: 1;
+            background-color: black;
+        }
+
+        &.image{
+            z-index: 2;
+        }
+
+    }
+
+    
+}
+
+#side{
+    display: none;
+    @include notMobile{
+        @include display_flex;
+    }
+}
+
+#apply{
+    @include gflex(1);
+}
+
+.section{
+    @include display_flex;
+    flex-direction: column;
+    &.clickToApply{
+        align-items: center;
+        // justify-content: center;
+    }
+    .top{
+
+        // mobile view
+
+        @include display_flex;
+        @include notMobile{
+            display: none;
+        }
+        
+
+
+    }
+
+    .innerSection{
+        @include flexCenter;
+
+        .header, .label{
+            text-align: center;
+        }
+
+        .header{
+            font-size: 1.2rem;
+            color: $color-myintro;
+            margin-bottom: 1rem;
+        }
+
+        
+    }
+
+    .resumes{
+        @include flexAround(false);
+        min-height: fit-content;
+
+        @include notMobile{
+            justify-content: center;
+        }
+
+        .resume{
+            padding: 2rem 0.5rem;
+
+            @include flexCenter;
+            i{
+                font-size: 4rem;
+                margin: 0.5rem 0;
+                color: $color-myintro;
+            }
+            cursor: pointer;
+            *{
+                cursor: pointer;
+            }
+
+            .selector{
+                width: 1rem;
+                height: 1rem;
+                border-radius: $circle;
+                @include quickTransition(background-color);
+                background-color: white;
+                &.selected{
+                    background-color: $color-myintro;
+                }
+            }
+            span{
+                @include noDS;
+                text-align: center;
+                margin-bottom: 0.5rem;
+                cursor: pointer;
+            }
+            
+        }
+    }
+
+    .applyButton{
+        @include display_flex;
+        justify-content: center;
+        max-width: fit-content;
+        span{
+            @include noDS;
+            @include quickTransition(background-color);
+            padding: 1rem 3rem;
+            background-color: $color-black;
+            color: white;
+            font-size: 1.2rem;
+            border-radius: 0.2rem;
+        }
+        &.ready{
+            span{
+                @include noDS;
+                background-color: $color-myintro;
+                color: white;
+                cursor: pointer;
+            }
+            cursor: pointer;
+        }
+    }
+}

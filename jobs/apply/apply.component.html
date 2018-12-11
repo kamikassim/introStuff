@@ -1,0 +1,81 @@
+<div id="side" class="imageContainer dspNotMobile" *ngIf="applicationStatus != 'submitted' && !noResumes">
+  <div class="area image">
+    <img [src]="user.get('avatar')" [alt]="user.get('firstname')">
+  </div>
+
+  <div class="area school">
+    <i class="material-icons">school</i>
+  </div>
+</div>
+
+<div id="apply">
+
+
+
+  <div class="section">
+
+    <div class="top dspMobile">
+      <div class="imageContainer dspMobile" *ngIf="applicationStatus != 'submitted' && !noResumes">
+        <div class="area image">
+          <img [src]="user.get('avatar')" [alt]="user.get('firstname')">
+        </div>
+
+        <div class="area school">
+          <i class="material-icons">school</i>
+        </div>
+      </div>
+
+      <div class="innerSection">
+
+        <div class="headers">
+          <div class="header" *ngIf="applicationStatus != 'submitted' && !noResumes">Apply with one click!</div>
+          <div class="header" *ngIf="applicationStatus == 'submitted'">Congratulations!</div>
+        </div>
+
+        <div class="labels">
+          <div class="label" *ngIf="applicationStatus != 'submitted' && !noResumes">You're one step closer to the job of your dreams!</div>
+          <div class="label" *ngIf="applicationStatus == 'submitted'">Your application is on the way. We'll keep you updated on activity for this job application.</div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="innerSection">
+
+      <div class="headers dspNotMobile">
+        <div class="header" *ngIf="applicationStatus != 'submitted' && !noResumes">Apply with one click!</div>
+        <div class="header" *ngIf="applicationStatus == 'submitted'">Congratulations!</div>
+      </div>
+
+      <div class="labels dspNotMobile">
+        <div class="label" *ngIf="applicationStatus != 'submitted' && !noResumes">You're one step closer to the job of your dreams!</div>
+        <div class="label" *ngIf="applicationStatus == 'submitted'">Your application is on the way. We'll keep you updated on activity for this job application.</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="section" *ngIf="applicationStatus != 'submitted'">
+    <div class="resumes">
+      <div class="resume" *ngFor="let resume of resumes; let i = index" (click)="select(i)">
+        <i class="material-icons">insert_drive_file</i>
+        <span>{{resume.name}}</span>
+        <div [class]="'selector ' + (selectedIndex == i ? 'selected' : '')"></div>
+      </div>
+
+      <div class="noResumes" *ngIf="noResumes">
+        <span>You haven't uploaded any resumes yet.</span>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="section clickToApply" *ngIf="applicationStatus != 'submitted' && !noResumes && applyReady" (click)="apply()">
+    <div [class]="'applyButton ' + (applyReady ? 'ready' : '')">
+      <span>Apply</span>
+    </div>
+  </div>
+
+</div>

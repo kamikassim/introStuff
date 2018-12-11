@@ -1,0 +1,9 @@
+
+<app-signin-home *ngIf="pages.home.active" [class]="'app home ' + pages.home.visibility" [style.z-index]="pages.home.zIndex"></app-signin-home>
+<app-signin *ngIf="pages.signin.active" [class]="'app ' + pages.signin.visibility" [style.z-index]="pages.signin.zIndex"></app-signin>
+<app-signup *ngIf="pages.signup.active" [class]="'app ' + pages.signup.visibility" [style.z-index]="pages.signup.zIndex"></app-signup>
+<app-confirm *ngIf="pages.confirm.active" [class]="'app ' + pages.confirm.visibility" [style.z-index]="pages.confirm.zIndex"></app-confirm>
+<app-forgot *ngIf="pages.forgot.active" [class]="'app ' + pages.forgot.visibility" [style.z-index]="pages.forgot.zIndex"></app-forgot>
+<app-remember *ngIf="pages.remember.active" [class]="'app ' + pages.remember.visibility" [style.z-index]="pages.remember.zIndex"></app-remember>
+<app-logout *ngIf="pages.logout.active" [class]="'app ' + pages.logout.visibility" [style.z-index]="pages.logout.zIndex"></app-logout>
+<app-alert-window [class]="(alertActive ? 'active' : 'inactive') + ' ' + (alertVisible ? 'visible' : 'invisible')"></app-alert-window>

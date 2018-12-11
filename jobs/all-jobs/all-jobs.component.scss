@@ -1,0 +1,280 @@
+@import './src/assets/styles/main';
+
+:host{
+    @include display_flex;
+    flex-direction: column;
+}
+
+*{
+	// position: relative;
+	// float: left;
+	// clear: both;
+	@include noDecoration();
+	@include notSelectable();
+	#navCorp{
+		// width: 
+		.navbar{
+			@include display_flex();
+			align-items: center;
+			justify-content: flex-start;
+			.search{
+				@include flex(1,1,0);
+				@include desktop{
+					@include flex(0,0,0);
+					margin: auto;
+				}
+				position: initial;
+				transform: initial;
+				left: initial;
+			}
+			height: 52px;
+		}
+
+		// *{
+		// 	clear: initial;
+		// }
+		padding: 1px 0px;
+	}
+	#bottomBar{
+		position: relative;
+		float: left;
+		clear: both;
+		*{
+			clear: initial;
+			position: relative;
+			float: left;
+		}
+	}
+	
+}
+
+body{
+	background-color: #eeeeee;
+	margin: 0;
+	margin-top: 50px;
+	// min-width: 100vw;
+	// min-height: 100vh;
+}
+
+body, html{
+	height: $full;
+	width: $full;
+	overflow: auto;
+	min-height: fit-content;
+}
+.mainContainer{
+	@include display_flex();
+	flex-direction: column;
+	max-width: 100%;
+}
+#company-info{
+	@include display_flex();
+	flex-direction: column;
+	height: 300px;
+	background-color: black;
+	color: white;
+	align-items: center;
+	justify-content: center;
+
+	// margin-top: -1px; //chrome fix for tiny line separation between div and navbar
+
+	.container{
+		@include display_flex();
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		i{
+			font-size: 4em;
+		}
+	}
+
+	// width: 100vw;
+	// height: 300px;
+	// background-color: black;
+	// opacity: 1;
+	// color: white;
+	// @include notMobile{
+	// 	height: 180px;
+	// }
+	// .container{
+	// 	padding: 20px;
+	// 	width: calc(100% - 40px);
+	// 	@include relativeCenter();
+	// 	.image{
+	// 		background-image: url("../../img/southwire.jpg");
+	// 		background-size: 100px;
+	// 		background-color: white;
+	// 		width: 120px;
+	// 		height: 120px;
+	// 		border-radius: 1000px;
+	// 		@include relativeMiddle();
+	// 		// padding: 20px;
+	// 		background-position: center;
+	// 		background-repeat: no-repeat;
+	// 		@include notMobile{
+	// 			background-size: 50px;
+	// 			width: 70px;
+	// 			height: 70px;
+	// 		}
+	// 	}
+	// 	.company-name{
+	// 		@include relativeMiddle();
+	// 		padding: 20px;
+	// 		font-size: 20px;
+	// 		line-height: 30px;
+	// 		@include notMobile{
+	// 			padding-bottom: 0px;
+	// 		}
+	// 		@include mobile{
+	// 			clear: both;
+	// 		}
+	// 	}
+	// }
+}
+
+#feed{
+	min-height: 800px;
+    padding: 10px;
+    @include display_flex;
+    flex-direction: column;
+    background-color: $color-grey;
+
+	.feed{
+		font-size: 1.5em;
+		font-weight: 700;
+        color: black;
+        margin-bottom: 1rem;
+	}
+
+	.job{
+		background-color: white;
+		border-radius: 2px;
+		margin-bottom: 10px;
+		padding: 10px;
+		border: solid 1px rgba($color-text-grey, 0.2);
+		
+		.posting{
+			// min-height: fit-content;
+			@include display_flex();
+			flex-direction: column;
+
+			@include desktop{
+				flex-direction: row;
+			}
+
+			.linkToExpand{
+				@include display_flex();
+				@include desktop{
+					@include flex(1,1,0);
+				}
+
+				cursor: pointer !important;
+				*{
+					cursor: pointer !important;	
+				}
+				.title{
+					font-weight: 300;
+					font-size: 1.5em;
+					color: $color-myintro;
+				}
+				.description{
+					@include display_flex();
+					flex-direction: column;
+					max-width: $full;
+					.text{
+						font-size: 12px;
+						line-height: 1.5em;
+						height: 3em;
+						overflow: hidden;
+						text-overflow: ellipsis;
+					}
+				}
+			}
+			.info{
+				margin-top: 20px;
+
+				.applicantNum{
+					color: $color-blue;
+				}
+				
+				@include display_flex();
+				justify-content: space-between;
+				
+
+				@include desktop{
+					margin-top: initial;
+					margin-left: 20px;
+					@include flex(1,1,0);
+					min-width: fit-content;
+					max-width: fit-content;
+					flex-direction: column;
+					align-items: flex-end;
+				}
+			}
+
+		}
+	}
+}
+
+
+
+
+app-nav-search{
+	// opacity: 0;
+}
+app-nav-old{
+	// opacity: 0;
+}
+#company-info{
+	// opacity: 0;
+}
+.navbar{
+	height: 4rem;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: $full;
+	z-index: 2;
+}
+
+.siteNotVisible, .siteVisible{
+	@include transition(opacity, .4s, 0s);
+}
+.siteNotVisible{
+	opacity: 0;
+}
+.siteVisible{
+	opacity: 1;
+}
+
+#page{
+	opacity: 0;
+	@include transition(opacity, .4s, 0s);
+	&.siteNotVisible{
+		opacity: 0;
+	}
+	&.siteVisible{
+		opacity: 1;
+	}	
+
+	@include display_flex;
+	flex-direction: column;
+	justify-content: flex-start;
+
+	app-bottom-nav{
+		width: $full;
+		background-color: #333333;
+		color: white;
+		padding: 20px 20px;
+		font-weight: 300;
+		overflow-x: hidden;
+		@include quickTransition(height);
+		position: relative;
+		float: left;
+		// opacity: 0;
+	}
+}
+
+alert-window{
+	z-index: 3;
+}
