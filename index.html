@@ -1,0 +1,96 @@
+<!doctype html>
+
+<html xmlns:ng="http://angularjs.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=8">
+  <title>MyIntro</title>
+  <base href="/">
+
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+  <app-root></app-root>
+  <!-- <noscript>Hello Viraj</noscript> -->
+  <!-- <script src="/node_modules/es6-shim/es6-shim.min.js"></script> -->
+  <!-- <script src="/node_modules/systemjs/dist/system-polyfills.js"></script> -->
+  <!-- <script src="/node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script> -->
+  
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,Array.prototype.includes"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+  <script>
+    // $(document).ready(function () {
+      // console.log("Ready")
+      var count = 0
+      /**
+       * detect IE
+       * returns version of IE or false, if browser is not Internet Explorer
+       */
+      function detectIE() {
+        var ua = window.navigator.userAgent;
+
+        // Test values; Uncomment to check result …
+
+        // IE 10
+        // ua = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)';
+
+        // IE 11
+        // ua = 'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko';
+
+        // IE 12 / Spartan
+        // ua = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0';
+
+        // Edge (IE 12+)
+        // ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586';
+
+        var msie = ua.indexOf('MSIE ');
+        if (msie > 0) {
+          // IE 10 or older => return version number
+          return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+        }
+
+        var trident = ua.indexOf('Trident/');
+        if (trident > 0) {
+          // IE 11 => return version number
+          var rv = ua.indexOf('rv:');
+          return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+        }
+
+        // var edge = ua.indexOf('Edge/');
+        // if (edge > 0) {
+        //   // Edge (IE 12+) => return version number
+        //   return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+        // }
+
+        // other browser
+        return false;
+      }
+
+      if ((detectIE() != false) && !localStorage.getItem('iedetected')) {
+        // // console.log("IE")
+        // if (window.location.href != 'https://myintro.com/unsupportedbroswers') {
+          alert("This browser is not supported")
+          // window.location('www.myintro.com/unsupportedbroswers')
+          // if (count == 0) {
+          localStorage.setItem('iedetected', true)
+          window.location.href = '/unsupportedbrowsers/'
+          
+          // }
+          // console.log("Directed")
+        // }
+      } else {
+        // console.log("Not IE")
+      }
+    // })
+
+  </script>
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.219.1.min.js"></script>
+  <script src="/assets/js/aws-cognito-sdk.min.js"></script>
+  <script src="/assets/js/amazon-cognito-identity.min.js"></script>
+</body>
+
+</html>
