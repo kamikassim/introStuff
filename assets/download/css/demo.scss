@@ -1,0 +1,1117 @@
+@import 'variables';
+
+
+// *{
+// 	font-family: $main-font;
+// }
+
+input[type=submit]{
+	display: none;
+}
+
+body{
+	background-color: white;
+	margin: 0;
+	overflow: auto;
+	width: 100%;
+	height: 100vh;
+	position: relative;
+	float: left;
+
+}
+
+#badge_link{
+	position: absolute;
+	bottom: 10px;
+	left: 40px;
+	@include mobile{
+		
+		// width: 100%;
+		bottom: initial;
+		left: initial;
+		@include relativeMiddle();
+		height: auto;
+		clear: both;
+		display: block;
+		// top: -100px;
+		// margin-bottom: 100px;
+		#badge{
+			// @include relativeMiddle();
+			position: relative;
+			bottom: initial;
+			left: initial;
+		}
+	}
+}
+
+#demoStarter{
+	display: none;
+
+	@include notMobile{
+		// display: block;
+		position: absolute;
+		opacity: 0;
+		right: 0;
+		padding: 10px 20px;
+		@include notSelectable();
+		@include noDecoration();
+		cursor: pointer;
+		color: white;
+		background-color: #666666;
+		animation: viewIt .4s ease-out 0s forwards;
+		height: 20px;
+		text-align: center;
+		width: 160px;
+	}
+}
+
+
+
+@keyframes viewIt{
+	from{
+		opacity: 0;
+	}
+	to{
+		opacity: 1;
+	}
+}
+
+#viewIt{
+	display: none;
+
+	//{ ** INCLUDES
+		@include notMobile{
+			position: absolute;
+			opacity: 0;
+			right: 0;
+			display: block;
+			padding: 10px 20px;
+			@include notSelectable();
+			@include noDecoration();
+			cursor: pointer;
+			color: white;
+			height: 20px;
+			width: 160px;
+			top: 40px;
+			text-align: center;
+			background-color: $color-blue;
+			
+			animation: viewIt .4s ease-out 5s forwards;
+		}
+	//} ** END INCLUDES
+	
+}
+.content_container{
+	position: relative;
+	float: left;
+	width: 100%;
+	height: 100%;
+	@include notMobile{
+		min-height: 800px;
+	}
+	@include mobile{
+		height: auto;
+	}
+
+	.myintro_slogan{
+		display: none;
+		@include notMobile{
+			display: block;
+			font-size: 1.3em;
+			font-weight: 400;
+			color: $color-blue;
+			position: absolute;
+			padding: 10px 20px;
+			right: 20px;
+			bottom: 20px;
+			opacity: 1;
+			// animation: viewIt .4s ease-out 4s forwards;
+		}
+
+	}
+	.bucket{
+		position: relative;
+		float: left;
+		width: 100%;
+		height: 100%;
+		clear: both;
+
+		&.blue{
+			background-color: white;
+			margin-top: 0px;
+			margin-top: -200vh;
+			background-color: $color-blue;
+			display: none;
+					
+			//{ ** INCLUDES
+				@include tablet{
+					margin-top: -100vh;
+					background-color: $color-blue;
+				}
+				@include desktop{
+					margin-top: -100vh;
+					background-color: $color-blue;
+				}
+			//} ** END INCLUDES
+			
+
+
+		}
+
+		&.white{
+			background-color: white;
+			animation: scrollUp 3.5s ease-out 0s forwards;
+			display: none;
+		}
+	}
+	a{
+		#badge{
+			width: 200px;
+			height: 100px;
+			background-image: url("../img/badge.png");
+			background-position: center;
+			background-size: contain;
+			background-repeat: no-repeat;
+			position: absolute;
+			bottom: 10%;
+
+			left: 5%;
+			opacity: 0;
+			opacity: 1;
+		}
+	}
+	#logo{
+
+		//{ ** INCLUDES
+			@include tablet{
+				background-image: url("../img/logo.png");
+				background-position: center;
+				background-size: contain;
+				background-repeat: no-repeat;
+				position: absolute;
+				width: 100px;
+				height: 100px;
+				opacity: 0;
+
+
+				//{ ** INCLUDES
+					@include absoluteCenter();
+				//} ** END INCLUDES
+				top: 35%;
+				opacity: 1;
+				left: 10%;
+				top: 10%;
+				width: 50px;
+
+			}
+			@include desktop{
+				background-image: url("../img/logo.png");
+				background-position: center;
+				background-size: contain;
+				background-repeat: no-repeat;
+				position: absolute;
+				width: 100px;
+				height: 100px;
+				opacity: 0;
+
+
+				//{ ** INCLUDES
+					@include absoluteCenter();
+				//} ** END INCLUDES
+				top: 35%;
+				opacity: 1;
+				left: 10%;
+				top: 10%;
+				width: 50px;
+			}
+		//} ** END INCLUDES
+		
+	}
+
+	#welcome{
+
+		font-size: 3em;
+		font-weight: 300;
+		color: white;
+		opacity: 0;
+		color: $color-blue;
+		display: none;
+
+		//{ ** INCLUDES
+			@include absoluteCenter();
+		//} ** END INCLUDES
+		
+
+	}
+
+	#phone{
+		position: relative;
+		float: left;
+		width: 100vw;
+		height: 100vh;
+		clear: both;
+		opacity: 1;
+
+
+
+		//{ ** INCLUDES
+			// @include notMobile{
+				width: 300px;
+				max-width: 300px;
+				height: 600px;
+				background-image: url("../img/phone.png");
+				background-size: contain;
+				background-repeat: no-repeat;
+				background-position: center;
+				@include absoluteCenter();
+				&.android{
+					background-image: url("../img/android.png");
+
+					.content{
+					    top: 62px;
+						left: 14.5px;
+						width: calc(100% - 27.5px);
+						height: 481px;
+
+						#user_content{
+							.top_bar{
+								.arrow{
+									.piece.piece2{
+										left: 14.5px !important;
+									}
+								}
+							}
+						}
+					}
+					#demo{
+						.screen{
+							&.img{
+								background-size: contain;
+							}
+						}
+					}
+				}
+				@include mobile{
+					width: 200px;
+					height: 400px;
+					max-width: 70%;
+					min-width: 70%;
+					@include relativeMiddle();
+					clear: none;
+					// top: 70px;
+					margin-top: 120px;
+					margin-bottom: 40px;
+					&:not(.android){
+						.content{
+							@include relativeMiddle();
+							top: 55px;
+							height: 296px;
+							// top: 11.5%;
+							width: 171px;
+							margin-left: 1px;
+							// margin-left: 0.5%;
+						}
+					}
+				}
+
+			// }
+		//} ** END INCLUDES
+
+
+		//{ ** NESTED
+			#demo{
+				// display: none;
+				position: absolute;
+				height: 100%;
+				width: 100%;
+				top: 0;
+				left: 0;
+				opacity: 1;
+				overflow: hidden;
+				// @include transition(opacity, .4s, 0s);
+				&.visible{
+					opacity: 1;
+				}
+				&.zvisible{
+					z-index: 3;
+				}
+				.screen{
+					opacity: 1;
+					position: absolute;
+					height: 100%;
+					left: 100%;
+					width: 100%;
+					@include transition(all, 0.4s, 0.2s);
+					&.visible{
+						left: 0px;
+					}
+					&.invisible{
+						opacity: 0;
+					}
+					&.opaque{
+						opacity: 1;
+					}
+					&.away{
+						left: -100%;
+					}
+					&.img{
+						background-position: center;
+						background-repeat: no-repeat;
+						background-size: contain;
+						background-color: $color-blue;
+						@include notMobile{
+							background-size: cover;
+						}
+						&.screen1{
+							background-image: url("../img/screens/screen1.png");
+						}
+						&.screen2{
+							background-image: url("../img/screens/screen2.png");
+						}
+						&.screen3{
+							background-image: url("../img/screens/screen3.png");
+						}
+						&.screen4{
+							background-image: url("../img/screens/screen4.png");
+						}
+						&.screen5{
+							background-image: url("../img/screens/screen5.png");
+						}
+						&.screen6{
+							background-image: url("../img/screens/screen6.png");
+						}
+						&.screen7{
+							background-image: url("../img/screens/screen7.png");
+						}
+						&.screen8{
+							background-image: url("../img/screens/screen8.png");
+						}
+						&.screen9{
+							background-image: url("../img/screens/screen9.png");
+						}
+						&.screen10{
+							background-image: url("../img/screens/screen10.png");
+						}
+						&.screen11{
+							background-image: url("../img/screens/screen11.png");
+						}
+						&.screen12{
+							background-image: url("../img/screens/screen12.png");
+						}
+						&.screen13{
+							background-image: url("../img/screens/screen13.png");
+						}
+						&.screen14{
+							background-image: url("../img/screens/screen14.png");
+						}
+						&.screen15{
+							background-image: url("../img/screens/screen15.png");
+						}
+						&.screen16{
+							background-image: url("../img/screens/screen16.png");
+						}
+						&.screen17{
+							background-image: url("../img/screens/screen17.png");
+						}
+						&.screen18{
+							background-image: url("../img/screens/screen18.png");
+						}
+						&.screen19{
+							background-image: url("../img/screens/screen19.png");
+						}
+
+						&.screen20{
+							background-image: url("../img/screens/screen20.png");
+						}
+						&.screen21{
+							background-image: url("../img/screens/screen_accenture.png");
+						}
+						&.screen22{
+							background-image: url("../img/screens/screen_accenture2.png");
+						}
+						&.screen23{
+							background-image: url("../img/screens/screen_friends.png");
+						}
+						&.screen24{
+							background-image: url("../img/screens/screen_friends2.png");
+						}
+						&.screen25{
+							background-image: url("../img/screens/screen_friends3.png");
+						}
+						&.screen26{
+							background-image: url("../img/screens/screen_profile.png");
+						}
+						&.screen27{
+							background-image: url("../img/screens/screen_profile2.png");
+						}
+						&.screen28{
+							background-image: url("../img/screens/screen_profile3.png");
+						}
+						&#demo_accenture_video{
+							margin-top: 60px;
+							height: auto;
+							position: relative;
+							float: left;
+							width: 100%;
+							overflow: hidden;
+							video{
+								width: 100%;
+							}
+						}
+
+
+					}
+				}
+				&.visible{
+					display: block;
+				}
+			}
+			.content{
+				position: relative;
+				float: left;
+				background-color: white;
+				width: 100%;
+				height: 100%;
+				overflow-y: hidden;
+
+
+				//{ ** INCLUDES
+					@include tablet{
+	 					// background-color: initial;
+	 					top: 108px;
+						left: 22px;
+						width: calc(100% - 43px);
+						height: 394px;
+
+					}
+
+					@include desktop{
+						// background-color: initial;
+						top: 108px;
+						left: 22px;
+						width: calc(100% - 43px);
+						height: 394px;
+					}
+				//} ** END INCLUDES
+						
+				//{ ** NESTED
+					.inner_content{
+						position: relative;
+						float: left;
+						height: 100%;
+						width: 100%;
+						&.hidden{
+							display: none;
+						}
+						.top_bar{
+							position: absolute;
+							top: 0;
+							width: 100%;
+							height: 60px;
+							background-color: $color-blue;
+							z-index: 3;
+
+
+
+							//{ ** INCLUDES
+								@include tablet{
+									height: 40px;
+								}
+
+								@include desktop{
+									height: 40px;
+								}
+							//} ** END INCLUDES
+
+
+							//{ ** NESTED
+								.title{
+									position: relative;
+									float: left;
+									color: white;
+									font-weight: 300;
+									font-size: 1.3em;
+
+									//{ ** INCLUDES
+										@include absoluteCenter();
+										@include tablet{
+											font-size: 1em;
+										}
+										@include desktop{
+											font-size: 1em;
+										}
+									//} ** END INCLUDES
+
+
+									
+								}
+
+								.item{
+									position: relative;
+									float: right;
+								}
+							//} ** END NESTED
+							
+						}
+						.bottom_bar{
+							position: absolute;
+							bottom: 0;
+							width: 100%;
+							height: 60px;
+							background-color: $color-blue;
+							z-index: 3;
+
+
+							//{ ** INCLUDES
+								@include tablet{
+									height: 40px;
+								}
+
+								@include desktop{
+									height: 40px;
+								}
+							//} ** END INCLUDES
+							
+							.item{
+								&.hidden{
+									@keyframes bottom_bar_hide{
+										from{
+											opacity: 1;
+										}
+										to{
+											opacity: 0;
+										}
+									}
+									animation: bottom_bar_hide .2s ease-out 0s forwards
+								}
+								&.visible{
+									@keyframes bottom_bar_show{
+										from{
+											opacity: 0;
+										}
+										to{
+											opacity: 1;
+										}
+									}
+									animation: bottom_bar_show .2s ease-out 0s forwards
+								}
+							}
+							
+						}
+						.people{
+							position: relative;
+							float: left;
+							width: 100%;
+							margin-top: 60px;
+							height: calc(100% - 120px);
+							overflow: auto;
+							background-color: $color-grey;
+							z-index: 1;
+
+
+							//{ ** INCLUDES
+								@include tablet{
+									margin-top: 40px;
+									height: calc(100% - 80px);
+								}
+								@include desktop{
+									margin-top: 40px;
+									height: calc(100% - 80px);
+								}
+							//} ** END INCLUDES
+									
+							//{ ** NESTED
+								.first_person{
+									position: absolute;
+									top: 0;
+									left: 0;
+									width: 100%;
+									height: 80px;
+									background-color: white;
+
+									//{ ** INCLUDES
+										@include tablet{
+											height: 60px;
+										}
+										@include desktop{
+	 										height: 60px;
+										}
+									//} ** END INCLUDES
+											
+									//{ ** NESTED
+										form{
+											position: relative;
+											float: left;
+											width: 100%;
+											height: 100%;
+											label{
+
+												//{ ** ATTRIBUTES
+													position: relative;
+													float: left;
+													width: 100%;
+													height: 100%;
+												//} ** END ATTRIBUTES
+
+
+												//{ ** INCLUDES
+													@include noDecoration();
+													@include notSelectable();
+													cursor: pointer;
+												//} ** END INCLUDES
+												
+												
+												.container{
+													position: relative;
+													float: left;
+													width: calc(100% - 20px);
+													height: calc(100% - 20px);
+													padding: 10px;
+
+													.image{
+														width: 50px;
+														height: 50px;
+														border-radius: 1000px;
+														// background-color: $color-blue;
+														background-image: url("../img/users/solo.png");
+														background-position: center;
+														background-repeat: no-repeat;
+														background-size: cover;
+														position: relative;
+														float: left;
+														margin-right: 20px;
+														top: 50%;
+														transform: translateY(-50%);
+													}
+													.info{
+														position: relative;
+														float: left;
+														top: 50%;
+														transform: translateY(-50%);
+														span{
+															position: relative;
+															float: left;
+															clear: both;
+
+															&.name{
+																font-weight: 300;
+																font-size: 1.1em;
+															}
+
+															&.skill{
+																font-size: 0.6em;
+																color: $color-text-grey;
+															}
+														}
+													}
+												}
+											}
+										}
+										
+									//} ** END NESTED
+									
+								}
+								.others{
+									width: 100%;
+									position: relative;
+									float: left;
+									margin-top: 80px;
+									clear: both;
+
+									//{ ** INCLUDES
+										@include tablet{
+											margin-top: 60px;
+										}
+										@include desktop{
+											margin-top: 60px;
+										}
+									//} ** END INCLUDES
+									table{
+										position: relative;
+										float: left;
+										width: 100%;
+										tbody{
+											position: relative;
+											float: left;
+											width: 100%;
+											tr{
+												position: relative;
+												float: left;
+												width: 100%;
+												td{
+													position: relative;
+													float: left;
+													width: 100%;
+													form{
+														position: relative;
+														float: left;
+														width: 100%;
+														height: 100%;
+														label{
+
+															//{ ** ATTRIBUTES
+																position: relative;
+																float: left;
+																width: 100%;
+																height: 100%;
+															//} ** END ATTRIBUTES
+
+
+															//{ ** INCLUDES
+																@include noDecoration();
+																@include notSelectable();
+																cursor: pointer;
+															//} ** END INCLUDES
+															
+															
+															.container{
+																position: relative;
+																float: left;
+																width: calc(100% - 20px);
+																height: 40px;
+																padding: 7px 7px 10px 8px;
+																margin: 3px 3px 0px 2px;
+																background-color: white;
+
+																.image{
+																	width: 40px;
+																	height: 40px;
+																	border-radius: 1000px;
+																	// background-color: $color-blue;
+																	background-image: url("../img/users/solo.png");
+																	background-position: center;
+																	background-repeat: no-repeat;
+																	background-size: cover;
+																	position: relative;
+																	float: left;
+																	margin-right: 20px;
+																	top: 50%;
+																	transform: translateY(-50%);
+																	&.teo{
+																		background-image: url("../img/users/teo.jpg");
+																	}
+																	&.viraj{
+																		background-image: url("../img/users/viraj.jpg");
+																	}
+																}
+																.info{
+																	position: relative;
+																	float: left;
+																	top: 50%;
+																	transform: translateY(-50%);
+																	span{
+																		position: relative;
+																		float: left;
+																		clear: both;
+
+																		&.name{
+																			font-weight: 300;
+																			font-size: 1.1em;
+																		}
+
+																		&.skill{
+																			font-size: 0.6em;
+																			color: $color-text-grey;
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							//} ** END NESTED
+							
+						}
+						div{
+							.item{
+								position: relative;
+								float: left;
+								height: calc(100% - 20px);
+								width: calc(100% / 3);
+								margin: 10px 0px;
+
+								//{ ** ATTRIBUTES
+									background-position: center;
+									background-size: contain;
+									background-repeat: no-repeat;
+								//} ** END ATTRIBUTES
+								
+								&.home{
+										background-image: url("../img/house.png");
+								}
+								&.message{
+									background-image: url("../img/message.png");
+								}
+								&.connect{
+									background-image: url("../img/connect.png");
+								}
+							}
+						}
+					}
+					#user_content{
+						position: absolute;
+						top: 100%;
+						width: 100%;
+						background-color: $color-blue;
+						left: 0;
+						height: 200%;
+						z-index: 3;
+
+						&.open{
+							@keyframes open{
+								from{
+									top: 100%;
+								}
+								to{
+									top: -100%;
+								}
+							}
+							animation: open .4s ease-out 0s forwards;
+						}
+
+						&.close{
+							@keyframes close{
+								from{
+									top: -100%;
+								}
+								to{
+									top: 100%;
+								}
+							}
+							animation: close .4s ease-out 0s forwards;
+						}
+
+						.top_bar{
+							top: 50%;
+							position: relative;
+							float: left;
+							width: 100%;
+							height: 4%;
+							background-color: $color-blue;
+
+							//{ ** INCLUDES
+								@include tablet{
+									height: 5%;
+								}
+								@include desktop{
+									height: 5%;
+								}
+							//} ** END INCLUDES
+							
+							.arrow{
+								position: relative;
+								float: left;
+								left: 25px;
+								top: 15px;
+								height: 20px;
+								width: 20px;
+
+								//{ ** INCLUDES
+									@include noDecoration();
+									@include notSelectable();
+									cursor: pointer;
+									@include tablet{
+										left: 20px;
+										top: 10px;
+									}
+									@include desktop{
+										left: 20px;
+										top: 10px;
+									}
+								//} ** END INCLUDES
+								
+								.piece{
+									position: absolute;
+									height: 100%;
+									width: 2px;
+									background-color: white;
+									&.piece1{
+										@include rotate(135);
+									}
+									&.piece2{
+										@include rotate(45);
+										left: 14px;
+									}
+								}
+							}
+						}
+						.custom_content{
+							position: relative;
+							float: left;
+							clear: both;
+							width: 100%;
+							height: 46%;
+							top: 50%;
+							background-color: white;
+							overflow: auto;
+
+							//{ ** INCLUDES
+								@include tablet{
+									height: 45%;
+								}
+								@include desktop{
+									height: 45%;
+								}
+							//} ** END INCLUDES
+							
+							.video{
+								position: relative;
+								float: left;
+								width: 100%;
+								height: 34%;
+								background-color: black;
+										
+								//{ ** INCLUDES
+									@include tablet{
+										height: 41%;
+									}
+									@include desktop{
+										height: 41%;
+									}
+								//} ** END INCLUDES
+								
+								video{
+									width: 100%;
+									height: 100%;
+								}
+							}
+							table{
+								position: relative;
+								float: left;
+								width: 100%;
+								tbody{
+									position: relative;
+									float: left;
+									width: 100%;
+									tr{
+										position: relative;
+										float: left;
+										width: 100%;
+										&:last-child{
+											td{
+												border-bottom: none;
+											}
+										}
+										td{
+											position: relative;
+											width: 100%;
+											float: left;
+											border-bottom: solid 1px $color-grey;
+										}
+										&#user_info{
+											td{
+												.container{
+													position: relative;
+													float: left;
+													width: calc(100% - 20px);
+													height: 40px;
+													padding: 10px;
+
+													.image{
+														width: 50px;
+														height: 50px;
+														border-radius: 1000px;
+														// background-color: $color-blue;
+														background-position: center;
+														background-repeat: no-repeat;
+														background-size: cover;
+														position: relative;
+														float: left;
+														margin-right: 20px;
+														top: 50%;
+														transform: translateY(-50%);
+													}
+													.info{
+														position: relative;
+														float: left;
+														top: 50%;
+														transform: translateY(-50%);
+														span{
+															position: relative;
+															float: left;
+															clear: both;
+
+															&.name{
+																font-weight: 300;
+																font-size: 1.1em;
+															}
+
+															&.skill{
+																font-size: 0.6em;
+																color: $color-text-grey;
+															}
+														}
+													}
+												}
+											}
+										}
+										&#user_description{
+											td{
+												padding: 10px;
+												font-size: 0.7em;
+												width: calc(100% - 20px);
+											}
+										}
+										&#user_university{
+											td{
+												padding: 10px;
+												width: calc(100% - 20px);
+
+												span{
+													position: relative;
+													float: left;
+													clear: both;
+												}
+												.university{
+													font-size: 0.8em;
+												}
+												.major{
+													font-size: 0.7em;
+													color: $color-text-grey;
+												}
+											}
+										}
+										&#user_five_words{
+											td{
+												padding: 10px;
+												width: calc(100% - 20px);
+												text-align: center;
+
+												.title{
+													width: 100%;
+													text-align: center;
+													color: $color-text-grey;
+													margin-bottom: 10px;
+												}
+												.words{
+													span{
+														display: inline;
+														position: relative;
+														float: left;
+														padding: 5px 10px;
+														color: white;
+														background-color: $color-blue;
+														margin: 0px 5px 5px;
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+
+					}
+				//} ** END NESTED
+				
+			}
+		//} ** END NESTED
+		
+		
+	}
+}
+
