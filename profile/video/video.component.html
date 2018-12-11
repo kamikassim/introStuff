@@ -1,0 +1,19 @@
+<div id="videoContainer">
+    <video id="videoPlayer" controls playsinline>
+        <source id="videoSource" [src]="videoUrl" type="video/mp4">
+    </video>
+</div>
+
+<div *ngIf="showOverlay" [class]="isPlayButtonVisible ? 'active' : 'inactive'" id="overlay" (click)="hidePlayButton()">
+  <div class="nameplate">
+    <span class="name" [style.fontSize.rem]="nameSize">{{user.firstname}}'s<br>Story</span>
+  </div>
+  <div class="trigger">
+    <div class="imageContainer">
+      <img [src]="user.get('videoThumbnailURL') ? user.get('videoThumbnailURL') : user.get('avatar')" [alt]="user.get('firstname')">
+    </div>
+    <div class="playButton">
+      <img [src]="play">
+    </div>
+  </div>
+</div>

@@ -1,0 +1,114 @@
+@import './src/assets/styles/main';
+
+:host, app-profile-video{
+    @include display_flex;
+    position: relative;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#overlay{
+    @include display_flex;
+    @include flex(1,1,0);
+    @include quickTransition(opacity);
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: $full;
+    width: $full;
+    * {
+        @include noDS;
+        cursor: pointer;
+    }
+
+    .nameplate{
+        @include flex(1,1,0);
+        background-color: black;
+        @include flexCenter;
+
+        .name{
+            color: white;
+            font-size: 2rem;
+            @include notMobile{
+                font-size: 4rem;
+            }
+            text-align: center;
+        }
+    }
+
+    
+
+    .trigger{
+        @include display_flex;
+        @include flex(1,1,0);
+        @include insetCard;
+        flex-direction: column;
+        cursor: pointer;
+
+        .imageContainer{
+            @include display_flex;
+            @include flex(1,1,0);
+            img{
+                width: $full;
+                height: $full;
+                object-fit: cover;
+            }
+        }
+
+        position: relative;
+        .playButton{
+            background-color: rgba(black, 0.3);
+            position: absolute;
+            height: $full;
+            width: $full;
+            top: 0;
+            left: 0;
+            @include flexCenter;
+            img{
+                @include quickTransition(width);
+                width: 25%;
+                object-fit: contain;
+            }
+        }
+        &:hover{
+            @include notMobile{
+                .playButton{
+                    img{
+                        width: 30%;
+                    }
+                }
+            }
+        }
+    }
+
+    @keyframes hideVideo {
+        from {
+            display: block;
+        }
+        to {
+            display: none;
+        }
+    }
+   
+    
+    &.active {
+        opacity: 1;
+    }
+
+    &.inactive {
+        opacity: 0;
+    }
+}
+
+#videoContainer {
+    background-color: black;
+    height: $full;
+    position: absolute;
+    width: $full;
+
+    video {
+        height: $full;
+        width: $full;
+    }
+}

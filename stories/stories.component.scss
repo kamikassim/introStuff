@@ -1,0 +1,88 @@
+@import './src/assets/styles/main';
+
+:host, app-stories{
+    @include display_flex;
+    overflow: hidden;
+}
+
+#stories{
+    @include display_flex;
+    @include flex(1,1,0);
+
+    .nav{
+        display: none;
+        @include notMobile{
+            // @include flex(1,1,0);
+            background-color: $color-myintro;
+            @include flexCenter;
+            border-radius: 0.2rem;
+            // max-width: fit-content;
+            width: 1.5rem;
+        }
+        cursor: pointer;
+        *{
+            cursor: pointer;
+        }
+
+        i{
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        &.left{
+            margin-right: 0.5rem;
+        }
+
+        &.right{
+            margin-left: 0.5rem;
+        }
+    }
+
+
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+.allStories{
+    @include display_flex;
+    @include flex(1,1,0);
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 1px;
+}
+
+#storiesContainer{
+    min-width: fit-content;
+    @include display_flex;
+    
+    @include notMobile{
+        padding: 0 .5rem;
+    }
+    
+    .story{
+        @include display_flex;
+        border-radius: $circle;
+        overflow: hidden;
+            img{
+                width: $full;
+                height: $full;
+                object-fit: cover;
+            }
+
+            cursor: pointer;
+            *{
+                cursor: pointer;
+            }
+        
+    }
+
+    .story:not(:first-child){
+        // margin: 0 1rem;
+    }
+    .story:not(:last-child){
+        margin-right: 1rem;
+    }
+    
+}

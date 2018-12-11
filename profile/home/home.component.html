@@ -1,0 +1,24 @@
+<!-- <app-nav id="nav"></app-nav> -->
+<div id="page">
+    <div id="userContent" class="contentSection">
+        <div *ngIf="userLoggedIn" class="label">Stories</div>
+        <!-- <div *ngIf="!userLoggedIn" class="label">Login to see Stories</div> -->
+        <app-stories *ngIf="userLoggedIn" id="stories"></app-stories>
+        <app-profile-video id="video"></app-profile-video>
+        <div id="options">
+            <div class="option resume" (click)="openResume()">
+                <span *ngIf="resumeURL">View Resume</span>
+            </div>
+            <div class="option share">
+                <i class="material-icons">share</i>
+                <span>Share</span>
+            </div>
+        </div>
+        <app-profile-info id="profileInfoNotMob"></app-profile-info>
+    </div>
+    <div id="surfacedContent" class="contentSection">
+        <app-profile-info id="profileInfoMob"></app-profile-info>
+        <app-events id="events"></app-events>
+        <app-recommended-jobs id="jobs"></app-recommended-jobs>
+    </div>
+</div>

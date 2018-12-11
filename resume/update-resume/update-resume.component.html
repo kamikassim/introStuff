@@ -1,0 +1,26 @@
+<app-alert-window [class]="(alertActive ? 'active' : 'inactive') + ' ' + (alertVisible ? 'visible' : 'invisible')"></app-alert-window>
+<app-nav-search></app-nav-search>
+
+<div class="header">
+  <span>Select an option</span>
+</div>
+<div id="resumes">
+  <div class="resume" *ngFor="let resume of resumes; let i = index">
+    <div class="icon">
+      <i class="material-icons" *ngIf="resume.url">insert_drive_file</i>
+      <i class="material-icons" *ngIf="!resume.url">add</i>
+      <span *ngIf="resume.url">{{resume.name}}</span>
+      <input id="hiddenInput" type="file" (change)="fileChange($event, i)" accept=".pdf,.doc,.docx">
+    </div>
+    <div class="action">
+      <span *ngIf="resume.url">Replace</span>
+      <span *ngIf="!resume.url">Add New</span>
+    </div>
+  </div>
+</div>
+
+<div class="options">
+  <div class="option" (click)="cancel()">
+    <span>Cancel</span>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<app-nav id="nav"></app-nav>
+<div class="page">
+
+    <div class="field">
+        <div class="titleText">
+            <span>Hello, {{user.get('firstname')}}</span>
+        </div>
+        <div class="infoText">
+            <span *ngIf="!thumbnail">Upload your Intro Video. Need a little help? Check out these helpful 
+                <span class="link" (click)="tips()">tips</span>!
+            </span>
+            <span *ngIf="thumbnail">Upload a thumbnail for your video:</span>
+        </div>
+
+        <div id="uploadBox" (click)="triggerUpload()">
+            <input *ngIf="!thumbnail" id="uploadInput" type="file" (change)="upload($event)">
+            <input *ngIf="thumbnail" id="uploadInput" type="file" (change)="thumbnailUpload($event)">
+            <i class="material-icons">file_upload</i>
+        </div>
+
+        <div class="link skipText" (click)="skip()">
+            <span>Skip! I'll do this later.</span>
+        </div>
+    </div>
+
+</div>
+<app-alert-window [class]="(alertActive ? 'active' : 'inactive') + ' ' + (alertVisible ? 'visible' : 'invisible')"></app-alert-window>

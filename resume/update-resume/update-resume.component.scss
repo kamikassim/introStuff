@@ -1,0 +1,170 @@
+@import './src/assets/styles/main';
+
+:host{
+    @include display_flex;
+    position: absolute;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    width: $full;
+    height: $full;
+}
+
+app-nav-search{
+    @include display_flex;
+    height: 4rem;
+}
+
+.header{
+    background-color: $color-myintro;
+    margin-top: 4rem;
+    @include flexCenter;
+    padding: 1.4rem 0;
+    span{
+        
+        font-size: 1.5rem;
+        color: $color-text-grey;
+        color: white;
+        font-weight: 300;
+        // font-weight: 700;
+    }
+}
+
+.options{
+    @include display_flex;
+    align-items: center;
+    height: 4rem;
+    background-color: $color-myintro;
+    .option{
+        padding: 0 2rem; 
+        color: white;
+        cursor: pointer;
+        span{
+            @include noDS;
+            color: white;
+            cursor: pointer;
+        }
+    }
+}
+
+#resumes{
+    @include display_flex;
+    @include gflex(1);
+    flex-direction: column;
+    @include insetCard;
+    @include notMobile{
+        flex-direction: row;
+        align-items: center;
+    }
+    // @include gflex(1);
+    // flex-direction: column;
+
+    // @include notMobile{
+    //     flex-direction: row;
+    // }
+
+    // .resume{
+    //     @include flexCenter;
+    //     @include gflex(1);
+    //     .icon{
+    //         position: relative;
+    //         @include display_flex;
+
+    //         i{
+    //             font-size: 6rem;
+    //             color: $color-myintro;
+    //         }
+
+    //         input{
+    //             @include noDecoration;
+    //             position: absolute;
+    //             width: $full;
+    //             height: $full;
+    //             background-color: white;
+    //             opacity: 0;
+    //             z-index: 2;
+    //         }
+    //     }
+    // }
+    
+    .resume{
+        @include gflex(1);
+        @include card2_noTrans;
+        background-color: white;
+        border-radius: 0.2rem;
+        overflow: hidden;
+        margin: 1rem;
+        @include flexBetween(true);
+        @include notMobile{
+            min-height: fit-content;
+            *{
+                min-height: fit-content;
+            }
+        }
+
+        
+        
+        .icon{
+            @include gflex(1);
+            position: relative;
+            width: $full;
+            height: $full;
+            align-items: center;
+            // @include display_flex;
+            @include flexCenter;
+            @include notMobile{
+                min-height: 6rem;
+            }
+
+            cursor: pointer;
+            *{
+                cursor: pointer;
+            }
+            i{
+                @include noDS;
+                position: absolute;
+                top: 0;
+                left: 0;
+                font-size: 2rem;
+                padding: 0.5rem;
+                cursor: pointer;
+                color: $color-myintro;
+            }
+
+            input{
+                @include noDecoration;
+                position: absolute;
+                width: $full;
+                height: $full;
+                top: 0;
+                left: 0;
+                opacity: 0;
+                z-index: 2;
+                cursor: pointer !important;
+            }
+
+            span{
+                color: black;
+                margin: 0 3rem;
+                @include noDS;
+                cursor: pointer;
+            }
+        }
+        .action{
+            @include card2_noTrans;
+            min-height: fit-content;
+            font-size: 1rem;
+            background-color: white;
+            padding: 0.5rem;
+            width: $full;
+            @include flexCenter;
+            border-top: 1px solid rgba(black, 0.1);
+
+            span{
+                @include noDS;
+                // color: white;
+            }
+        }
+    }
+}
+

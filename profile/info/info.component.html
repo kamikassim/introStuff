@@ -1,0 +1,26 @@
+<div *ngIf="user" id="info" (window:resize)="onResize($event)">
+  <div id="userImageContainer" class="userAvatarContainer">
+    <div class="imageContainer" [style.height.px]="imageSize" [style.width.px]="imageSize">
+      <img [src]="user.avatar" [alt]="user.displayName" (load)="onResize($event)">
+    </div>
+  </div>
+  <div class="userInfo">
+    <div class="name info">
+      <span>{{user.displayName}}</span>
+    </div>
+    <div class="title info" *ngIf="user.title">
+        <span *ngIf="user.currentCompany && user.title">{{user.currentCompany}} | {{user.title}}</span>
+        <span *ngIf="user.currentCompany && !user.title">{{user.currentCompany}}</span>
+        <span *ngIf="!user.currentCompany && user.title">{{user.title}}</span>
+    </div>
+    <div class="education info" *ngIf="user.education">
+        <span>{{user.education}}</span>
+    </div>
+    <div class="industry info" *ngIf="user.industry">
+        <span>{{user.industry}}</span>
+    </div>
+    <div *ngIf="resumeURL != null" class="resume" (click)="openResume()">
+      <span>View Resume</span>
+    </div>
+  </div>
+</div>

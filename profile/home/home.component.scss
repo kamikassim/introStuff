@@ -1,0 +1,208 @@
+@import './src/assets/styles/main';
+
+:host, app-profile-home{
+
+    // position: absolute;
+    height: $full;
+    width: $full;
+    // @include flex(1,1,0);
+    @include display_flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    #page{
+        opacity: 0;
+        height: $full;
+        @keyframes showMe {
+            from{
+                opacity: 0;
+            }
+            to{
+                opacity: 1;
+            }
+        }
+        animation: showMe .4s ease .4s forwards;
+        @include display_flex;
+        @include flex(10,1,0);
+        flex-direction: column;
+        @include notMobile{
+            flex-direction: row;
+            @include flex(14,1,0);
+            
+        }
+        max-height: 100%;
+
+        .contentSection{
+            @include display_flex;
+            flex-direction: column;
+            padding: 1rem;
+            @include notMobile{
+                padding: 2rem;
+            }
+        }
+
+        #userContent{
+            min-height: 50%;
+            padding-bottom: 0.5rem;
+            max-height: 100%;
+            @include mobile{
+                @include landscape{
+                    min-height: 100%;
+                }
+            }
+            // background-color: blue;
+            @include card2_noTrans;
+            // overflow: visible;
+            @include notMobile{
+                padding-bottom: 2rem;
+                min-height: initial;
+                @include flex(5,1,0);
+                @include noCard;
+            }
+        }
+    
+        #surfacedContent{
+            @include notMobile{
+                @include flex(4,1,0);
+            }
+            @include display_flex;
+            @include mobile{
+                @include landscape{
+                    display: none !important;
+                }
+                @include portrait{
+                    @include display_flex;
+                }
+            }
+            flex-direction: column;
+            overflow-x: hidden;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            // background-color: red;
+        }
+    
+        #profileInfoNotMob{
+            display: none;
+            @include notMobile{
+                @include display_flex;
+                @include flex(3,1,0);
+                // background-color: grey;
+            }
+        }
+    
+        #profileInfoMob{
+            @include display_flex;
+            // min-height: 6rem;
+            min-height: fit-content;
+            height: 6rem;
+            // background-color: white;
+            @include notMobile{
+                display: none;
+            }
+        }
+    
+        .label{
+            @include profileLabelStyle;
+        }
+    
+        #stories{
+            @include flex(3,1,0);
+            @include notMobile{
+                @include flex(2,1,0);
+            }
+            overflow: visible;
+            // background-color: green;
+        }
+    
+        #video{
+            @include flex(8,1,0);
+            margin-top: 0.5rem;
+            @include notMobile{
+                margin-top: 2rem;
+            }
+            // background-color: black;
+            border-radius: .2rem;
+        }
+    
+        #events{
+            // min-height: 34rem;
+            @include notMobile{
+                @include flex(1,1,0);
+            }
+            margin-bottom: 2rem;
+            // background-color: salmon;
+        }
+    
+        #jobs{
+            // min-height: 100rem;
+            @include notMobile{
+                @include flex(1,1,0);
+            }
+
+            margin-bottom: 2rem;
+            min-height: fit-content;
+            // background-color:skyblue;
+        }
+    
+        #options{
+            @include display_flex;
+            margin-top: 0.5rem;
+            @include notMobile{
+                margin: 1rem 0 2rem;
+            }
+            justify-content: space-between;
+    
+            .option{
+                @include noDecoration;
+                @include display_flex;
+                align-items: center;
+                cursor: pointer;
+                *{
+                    @include noDS;
+                    font-size: 1rem;
+                    @include notMobile{
+                        font-size: 1.2rem;
+                    }
+                    cursor: pointer;
+                }
+    
+                &.resume{
+                    *{
+                        color: $color-text-grey;
+                    }
+                }
+                &.share{
+                    *{
+                        color: $color-myintro;
+                    }
+                    i{
+                        font-size: 1.4rem;
+                        margin-right: 0.2rem;
+                    }
+                }
+            }
+        }
+        
+    }
+
+   
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

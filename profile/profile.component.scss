@@ -1,0 +1,32 @@
+@import './src/assets/styles/main';
+:host, app-profile{
+    position: absolute;
+    height: $full;
+    width: $full;
+    @include display_flex;
+    flex-direction: column;
+}
+
+
+.active, .inactive{
+    @include transition(opacity, .4s, 0s);
+}
+
+#nav{
+    // @include flex(1,1,0);
+    min-height: 4rem;
+    height: 4rem;
+}
+
+.page{
+    @include flex(10,1,0);
+}
+
+.active{
+    opacity: 1;
+}
+
+.inactive{
+    opacity: 0;
+}
+

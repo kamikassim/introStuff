@@ -1,0 +1,217 @@
+@import './src/assets/styles/main';
+
+:host{
+    background-color: $color-myintro;
+    @include display_flex;
+    flex-direction: column;
+    @include flex(1,1,0);
+    overflow: visible;
+    // min-height: fit-content;
+}
+
+div, img{
+    @include noDS;
+}
+
+.label{
+    // font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 2rem;
+    color: white;
+}
+
+input, textarea{
+    @include noDecoration;
+    border: none;
+    padding: 1rem;
+    font-size: 1.2rem;
+    width: $full;
+    resize: none;
+    // position: relative;
+
+}
+
+// Kam added this to test
+select {
+    @include noDecoration;
+    border: none;
+    padding: 1rem;
+    font-size: 1.2rem;
+    width: $full;
+    resize: none;
+    // position: relative;
+
+}
+
+.cancel,.submit{
+    cursor: pointer;
+}
+
+
+
+#edit{
+    opacity: 0;
+    @keyframes showMe {
+        from{
+            opacity: 0;
+        }
+        to{
+            opacity: 1;
+        }
+    }
+    animation: showMe .4s ease .4s forwards;
+    *{
+        min-height: fit-content;
+    }
+    padding: 2rem 0rem;
+    @include notMobile{
+        padding: 2rem 30vw;
+    }
+    @include flex(1,1,0);
+    width: $full;
+    @include display_flex;
+    flex-direction: column;
+    // justify-content: flex-start;
+    align-items: center;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    // height: $full;
+
+    .inputs{
+        @include display_flex;
+        flex-direction: column;
+        width: $full;
+        padding: 1rem;
+
+        .input:not(:last-child){
+            margin-bottom: 1rem;
+        }
+    }
+
+    //Kam added this one
+    .dropdown{
+        @include display_flex;
+        flex-direction: column;
+        width: $full;
+        padding: 1rem;
+
+        .input:not(:last-child){
+            margin-bottom: 1rem;
+        }
+    }
+
+    .imageContainer{
+        margin-bottom: 2rem;
+        width: 60vw;
+        height: 60vw;
+        // min-height: initial;
+        @include notMobile{
+            height: 20vw;
+            width: 20vw;
+        }
+        position: relative;
+        .image{
+            min-height: initial;
+            @include display_flex;
+            width: $full;
+            height: $full;
+            border-radius: $circle;
+            overflow: hidden;
+            border: 0.2rem solid white;
+
+            img{
+                min-height: initial;
+                width: $full;
+                height: $full;
+                object-fit: cover;
+            }
+        }
+        .cameraButton{
+            // background-color: 
+            position: absolute;
+            bottom: 1vw;
+            right: 3vw;
+            @include notMobile{
+                bottom: 0;
+                right: 1vw;
+            }
+            background-color: $color-myintro-dark;
+            border-radius: $circle;
+            @include flexCenter;
+            height: 4rem;
+            width: 4rem;
+            i{
+                padding-top: .2rem;
+                color: white;
+                font-size: 2.5rem;
+                height: 4rem;
+                width: 4rem;
+                vertical-align: middle;
+                text-align: center;
+                line-height: 4rem;
+                position: absolute;
+                cursor: pointer;
+            }
+            .cameraLensColor{
+                background-color: $color-myintro;
+                height: 1.4rem;
+                width: 1.4rem;
+                border-radius: $circle;
+            }
+            .hiddenInput{
+                @include noDS;
+                visibility: hidden;
+                position: absolute;
+                font-size: .1rem;
+                height: 100%;
+                z-index: -1;
+                width: 100%;
+                cursor: pointer;
+            }
+        }
+    }
+    .button{
+        @include display_flex;
+        // height: 150px;
+        width: $full;
+        align-items: center;
+        justify-content: center;
+        padding: 0 1rem;
+        margin-bottom: 1rem;
+        cursor: pointer;
+        span{
+            width: $full;
+            text-align: center;
+            background-color: $color-myintro-dark;
+            color: white;
+            padding: 1rem;
+            border-radius: $circle;
+            cursor: pointer;
+        }
+
+        &.logout{
+            padding-bottom: 1rem;
+        }
+        // padding: 2rem;
+        // width: $full;
+        // margin: 2rem;
+        // @include flex(1,1,0);
+    }
+}
+
+#editOptions{
+    @include display_flex;
+//     position: fixed;
+//     bottom: 0;
+    max-height: 4rem;
+    min-height: 4rem;
+    // @include gflex(1);
+//     width: $full;
+    @include card2_noTrans;
+    border-top: 1px solid rgba($color-grey, 0.3);
+    @include flexBetween(false);
+    .option{
+        padding: 0 1rem;
+        color: white;
+    }
+}

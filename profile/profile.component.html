@@ -1,0 +1,6 @@
+<app-nav id="nav"></app-nav>
+<app-edit-profile *ngIf="pages.edit == true" [class]="'page ' + (user ? 'active' : 'inactive')"></app-edit-profile>
+<app-edit-video *ngIf="pages.editVideo == true" class="'page ' + (user ? 'active' : 'inactive')"></app-edit-video>
+<app-profile-home *ngIf="pages.home == true" [class]="'page ' + (user ? 'active' : 'inactive')"></app-profile-home>
+<app-recruiter *ngIf="pages.recruiter == true" [class]=""></app-recruiter>
+<app-alert-window [class]="(alertActive ? 'active' : 'inactive') + ' ' + (alertVisible ? 'visible' : 'invisible')"></app-alert-window>

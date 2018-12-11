@@ -1,0 +1,68 @@
+@import './src/assets/styles/main';
+
+
+:host{
+    @include display_flex;
+    flex-direction: column;
+    min-height: fit-content;
+    @include notMobile{
+        min-height: initial;
+    }
+}
+#info{
+    height: $full;
+    @include gflex(1);
+    @include display_flex;
+    align-items: flex-start;
+    min-height: fit-content;
+    @include notMobile{
+        min-height: initial;
+    }
+    .userAvatarContainer{
+        @include display_flex;
+        height: $full;
+        .imageContainer{
+            @include display_flex;
+            border-radius: $circle;
+            overflow: hidden;
+            height: $full;
+            width: $full;
+            position: relative;
+            max-width: 96px;
+            max-height: 96px;
+            img{
+                height: $full;
+                object-fit: cover;
+                width: $full;
+            }
+        }
+    }
+    .userInfo{
+        @include gflex(3);
+        height: $full;
+        @include display_flex;
+        flex-direction: column;
+        margin-left: 1rem;
+        justify-content: space-around;
+        @include notMobile{
+            justify-content: flex-start;
+        }
+        min-height: fit-content;
+        @include notMobile{
+            min-height: initial;
+        }
+
+        .info{
+            font-size: 1.2rem;
+            // line-height: 2rem;
+        }
+
+        .name{
+            font-size: 1.5rem;
+            @include notMobile{
+                font-size: 2rem;
+            }
+            font-weight: 700;
+        }
+    }
+}

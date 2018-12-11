@@ -1,0 +1,66 @@
+<div id="edit">
+    <div class="imageContainer">
+        <div class="image">
+            <img [src]="user.get('avatar')" [alt]="user.get('displayName')">
+        </div>
+        <div class="cameraButton" (click)="clickInput()">
+            <i class="material-icons">camera_alt</i>
+            <div class="cameraLensColor"></div>
+            <input id="hiddenInput" class="hiddenInput" type="file" (change)="thumbnailUpload($event)" accept="image/*">
+        </div>
+    </div>
+    <div class="button editVideo" (click)="editVideo()">
+        <span>Edit Video</span>
+    </div>
+    <div class="button uploadResume" (click)="uploadResume()">
+        <span>Upload Resume</span>
+    </div>
+    <div class="inputs">
+        <div *ngFor="let input of inputs" [class]="'input' + (input.classes ? input.classes : '')">
+            <input [type]="input.type" [name]="input.name" [placeholder]="input.placeholder" [(ngModel)]="input.value">
+        </div>
+        <div *ngFor="let textarea of textareas" [class]="'input' + (textarea.classes ? textarea.classes : '')">
+            <span class="label" *ngIf="textarea.label">{{textarea.label}}</span>
+            <textarea [name]="textarea.name" [placeholder]="textarea.placeholder ? textarea.placeholder : ''" [(ngModel)]="textarea.value"></textarea>
+        </div>
+    </div>
+
+
+    <!-- Dropdown Gender  -->
+<div class="dropdowns">
+    <div class="gender"> 
+        <label for="gender">Select Gender</label>
+        <select id="gender" name="gender"
+            [(ngModel)]="gender" class="form-control">
+            <option>Female</option>
+            <option>Male</option>
+            <option>Prefer not to say</option>
+        </select>
+    </div> 
+    <!-- <div *ngFor="let select of selects" [class]="'dropdown' + (select.classes ? select.classes : '')">
+        <span class="label" *ngIf="select.label">{{selectarea.label}}</span>
+        <select [name]="select.name" [placeholder]="select.placeholder ? select.placeholder : ''" [(ngModel)]="select.value"></select>
+    </div> -->
+</div>
+<div>
+<select class="form-control form-control-sm" [(ngModel)]="data.propertytype" (ngModelChange)="onKeyDown()">
+    <option [value]="null" selected>-- Select --</option>
+    <option value="Residential">Residential</option>
+    <option value="Land">Land</option>
+    <option value="Commercial">Commercial</option>
+    <option value="Industry">Industry</option>
+</select>
+</div> 
+
+    <div class="button logout" (click)="logout()">
+        <span>Logout</span>
+    </div>
+</div>
+<div id="editOptions">
+    <div class="option cancel" (click)="cancel()">
+        <span>Cancel</span>
+    </div>
+    <div class="option submit" (click)="submit()">
+        <span>Save</span>
+    </div>
+</div>

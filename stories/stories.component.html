@@ -1,0 +1,21 @@
+<div *ngIf="user" id="stories">
+  <div class="nav left" (click)="move(false)">
+    <i class="material-icons">chevron_left</i>
+  </div>
+  <div class="allStories" id="allStories" (scroll)="scrolling()">
+  <div id="storiesContainer" (window:resize)="onResize($event)" (window:load)="onResize($event)">
+    <!-- <div class="storiesCollection"> -->
+      
+          <div class="story" *ngFor="let story of stories; let i = index" [style.height.px]="storySize" [style.width.px]="storySize" (click)="goTo(i)">
+              <!-- <div class="imageContainer"> -->
+              <img [src]="story.profileThumbnailURL" [alt]="story.displayName" *ngIf="storySize">
+            <!-- </div> -->
+          </div>
+      </div>
+        
+    <!-- </div> -->
+  </div>
+  <div class="nav right" (click)="move(true)">
+    <i class="material-icons">chevron_right</i>
+  </div>
+</div>
